@@ -197,6 +197,12 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             }
         }
 
+        [SerializeField]
+        int color;
+
+        [SerializeField]
+        GameObject cube;
+
         void OnPokeStateDataUpdated(PokeStateData data)
         {
             var pokeTarget = data.target;
@@ -215,6 +221,14 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             else if (m_ReturnToInitialPosition)
             {
                 m_TransformTweenableVariable.target = m_InitialPosition;
+                Debug.Log("<color=green>Poke détecté sur l'objet : " + gameObject.name + "</color>");
+                ChangeColor script = cube.GetComponent<ChangeColor>();
+
+                if (script != null)
+                {
+                    // Exemple: Change la couleur en fonction de l'index `color` (par exemple ici, tu utilises 1 pour la couleur rouge)
+                    script.ChangeMaterial(color); // Change la couleur en rouge
+                }
             }
         }
 
