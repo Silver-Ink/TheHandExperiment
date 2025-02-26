@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 {
@@ -14,10 +15,34 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         [SerializeField]
         Material green;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
+        [SerializeField]
+        Material yellow;
 
+        [SerializeField]
+        Material pink;
+
+        [SerializeField]
+        Material orange;
+
+        [SerializeField]
+        Material purple;
+
+        Dictionary<int, Material> materials = new Dictionary<int, Material>(7);
+
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Awake()
+        {
+            //Initialize dictionary of materials
+            materials.Add(0, green);
+
+            materials.Add(1, blue);
+            materials.Add(2, red);
+            materials.Add(3, yellow);
+            materials.Add(4, pink);
+            materials.Add(5, orange);
+            materials.Add(6, purple);
+
+            //Debug.Log("<color=red>Initialized ! : " + materials.Count + " </color>");
         }
 
         // Update is called once per frame
@@ -28,18 +53,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
         public void ChangeMaterial(int color)
         {
-            if (color == 0)
-            {
-                GetComponent<Renderer>().material = green;
-            }
-            if (color == 1)
-            {
-                GetComponent<Renderer>().material = blue;
-            }
-            if (color == 2)
-            {
-                GetComponent<Renderer>().material = red;
-            }
+            GetComponent<Renderer>().material = materials[color];
         }
     }
 }
