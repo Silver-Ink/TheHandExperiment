@@ -229,6 +229,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 {
                     // Exemple: Change la couleur en fonction de l'index `color` (par exemple ici, tu utilises 1 pour la couleur rouge)
                     script.ChangeMaterial(color); // Change la couleur en rouge
+                    script.TriggerColorChange();
                 }
             }
         }

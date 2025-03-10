@@ -864,7 +864,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3732c7aaf16ec0e409b58d56f9681a59, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -921,6 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d1d318812c52144bd0074789a74cca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deFault: {fileID: 2100000, guid: 3732c7aaf16ec0e409b58d56f9681a59, type: 2}
   red: {fileID: 2100000, guid: 486926af7570df94e85f1746b8f2c36c, type: 2}
   blue: {fileID: 2100000, guid: a5891095d321ed44bad33397c529077a, type: 2}
   green: {fileID: 2100000, guid: b0846841bb211144891cf3ac7a936c9b, type: 2}
@@ -1332,6 +1333,10 @@ PrefabInstance:
       propertyPath: cube
       value: 
       objectReference: {fileID: 874277017}
+    - target: {fileID: 8348423061939033190, guid: d661f645c81f29b4aa596207971ae441, type: 3}
+      propertyPath: color
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8348423061939033190, guid: d661f645c81f29b4aa596207971ae441, type: 3}
       propertyPath: m_PokeFilter
       value: 
@@ -2811,6 +2816,10 @@ PrefabInstance:
     - target: {fileID: 6082687689889785609, guid: bc831e4a2c6c2314084194dd31aa92f6, type: 3}
       propertyPath: _rigInfo._rightArmInfo._forearmUniversalLocalAxes._universalToActualAxesRotation.z
       value: 0.7071065
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033086003021322084, guid: bc831e4a2c6c2314084194dd31aa92f6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7153384271945383551, guid: bc831e4a2c6c2314084194dd31aa92f6, type: 3}
       propertyPath: m_InteractionManager
