@@ -15,10 +15,16 @@ public class PhysicsButton : MonoBehaviour
 	public bool isPressed;
 	private bool prevPressedState;
 	public AudioSource pressedSound;
-	public AudioSource releasedSound;
+	//public AudioSource releasedSound;
 	public Collider[] CollidersToIgnore;
 	public UnityEvent onPressed;
 	public UnityEvent onReleased;
+
+	[SerializeField]
+    ChangeColor.ColorType color; // Utilisation de l'enum ColorType
+
+	[SerializeField]
+	GameObject cube; // Référence au cube à changer
 
 	// Start is called before the first frame update
 	void Start()
@@ -81,16 +87,26 @@ public class PhysicsButton : MonoBehaviour
 	void Pressed()
 	{
 		prevPressedState = isPressed;
-		pressedSound.pitch = 1;
-		pressedSound.Play();
 		onPressed.Invoke();
+
+		ChangeColor script = cube.GetComponent<ChangeColor>();
+
+		if (script != null)
+		{
+			if (!script.IsMiniGamePlaying) //Permet de ne pas changer la couleur du cube lorsque les réponses sont affichées
+            {
+				pressedSound.pitch = 1;
+				pressedSound.Play();
+				script.ChangeMaterial(color);  // Change la couleur selon l'enum ColorType
+			}
+		}
 	}
 
 	void Released()
 	{
 		prevPressedState = isPressed;
-		releasedSound.pitch = Random.Range(1.1f, 1.2f);
-		releasedSound.Play();
+		/*releasedSound.pitch = Random.Range(1.1f, 1.2f);
+		releasedSound.Play();*/
 		onReleased.Invoke();
 	}
 }
