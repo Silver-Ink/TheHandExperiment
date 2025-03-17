@@ -232,7 +232,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 {
                     // Exemple : Change la couleur en fonction de l'index `color` (ici `color` est déjà de type ColorType)
                     script.ChangeMaterial(color);  // Change la couleur selon l'enum ColorType
-                    script.TriggerColorChange();  // Déclenche l'événement de changement de couleur
                 }
             }
         }

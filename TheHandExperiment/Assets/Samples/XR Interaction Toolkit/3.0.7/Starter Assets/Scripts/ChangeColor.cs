@@ -7,7 +7,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 {
     internal class ChangeColor : MonoBehaviour
     {
-        public static event Action OnColorChanged;
 
         // Définir l'énumération pour les couleurs
         public enum ColorType
@@ -47,6 +46,14 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         [SerializeField]
         Material purple;
 
+        public AudioSource wrongSound;
+        public AudioSource rightSound;
+        public AudioSource succeedSound;
+
+        public int firstRoundDifficulty = 3;
+        public int secondRoundDifficulty = 3;
+        public int finalRoundDifficulty = 3;
+
         // Dictionnaire des matériaux avec ColorType comme clé
         Dictionary<ColorType, Material> materials = new Dictionary<ColorType, Material>();
 
@@ -76,17 +83,13 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         }
 
         // Méthode pour déclencher un changement de couleur
-        public void TriggerColorChange()
-        {
-            OnColorChanged?.Invoke();
-        }
 
         // Méthode pour changer le matériau en fonction de la couleur choisie
         public void ChangeMaterial(ColorType color)
         {
             GetComponent<Renderer>().material = materials[color];
             currentColor = color;
-            Debug.Log("<color=blue>Color : " + color + "</color>");
+            //Debug.Log("<color=blue>Color : " + color + "</color>");
         }
 
         // Démarre le mini-jeu
@@ -98,10 +101,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         // Coroutine pour le déroulement du mini-jeu
         IEnumerator MiniGame()
         {
-            int firstRoundDifficulty = 3;
-            int secondRoundDifficulty = 4;
-            int finalRoundDifficulty = 5;
-
             List<ColorType> firstRoundAns = ChooseRandomColor(firstRoundDifficulty);
             List<ColorType> secondRoundAns = ChooseRandomColor(secondRoundDifficulty);
             List<ColorType> finalRoundAns = ChooseRandomColor(finalRoundDifficulty);
@@ -123,6 +122,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
             // Dernière manche
             StartCoroutine(changeCubeColor(finalRoundAns, currentColor, finalRoundDifficulty));
+            yield return new WaitUntil(() => !isRoundInProgress);
+
+            succeedSound.Play();
         }
 
         // Crée une liste avec les couleurs choisies au hasard
@@ -154,6 +156,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         // Fonction pour changer la couleur du cube en fonction de la liste de couleurs
         private IEnumerator changeCubeColor(List<ColorType> answers, ColorType lastValue, int numbersAns)
         {
+
             isRoundInProgress = true;
             foreach (ColorType val in answers)
             {
@@ -176,6 +179,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 }
                 else
                 {
+                    wrongSound.Play();
                     failed = true;
                     break;
                 }
@@ -187,9 +191,11 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             if (failed)
             {
                 StartCoroutine(changeCubeColor(answers, lastValue, numbersAns));
+                yield break;
             }
             else
             {
+                rightSound.Play();
                 isRoundInProgress = false;
             }
         }
