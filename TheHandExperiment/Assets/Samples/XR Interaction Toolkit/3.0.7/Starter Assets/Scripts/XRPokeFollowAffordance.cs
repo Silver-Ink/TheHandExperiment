@@ -203,8 +203,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         ColorType color; // Utilisation de l'enum ColorType
 
         [SerializeField]
-        GameObject cube; // Référence au cube à changer
+        GameObject cube; // Rï¿½fï¿½rence au cube ï¿½ changer
 
+        public bool isButtonPressed;
+        
         void OnPokeStateDataUpdated(PokeStateData data)
         {
             var pokeTarget = data.target;
@@ -219,18 +221,18 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                     targetPosition = Vector3.ClampMagnitude(targetPosition, m_MaxDistance);
 
                 m_TransformTweenableVariable.target = targetPosition;
+                isButtonPressed = true;
             }
             else if (m_ReturnToInitialPosition)
             {
                 m_TransformTweenableVariable.target = m_InitialPosition;
-                Debug.Log("<color=green>Poke détecté sur l'objet : " + gameObject.name + "</color>");
-
-                // Récupérer le script ChangeColor du cube
+                Debug.Log("<color=green>Poke dï¿½tectï¿½ sur l'objet : " + gameObject.name + "</color>");
+                isButtonPressed = false;
                 ChangeColor script = cube.GetComponent<ChangeColor>();
 
                 if (script != null)
                 {
-                    // Exemple : Change la couleur en fonction de l'index `color` (ici `color` est déjà de type ColorType)
+                    // Exemple : Change la couleur en fonction de l'index `color` (ici `color` est dï¿½jï¿½ de type ColorType)
                     script.ChangeMaterial(color);  // Change la couleur selon l'enum ColorType
                 }
             }
