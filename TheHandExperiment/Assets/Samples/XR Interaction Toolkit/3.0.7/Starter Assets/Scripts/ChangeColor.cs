@@ -9,6 +9,20 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
     {
         public static event Action OnColorChanged;
 
+        // Définir l'énumération pour les couleurs
+        public enum ColorType
+        {
+            Default = 0,
+            Blue = 1,
+            Red = 2,
+            Yellow = 3,
+            Pink = 4,
+            Orange = 5,
+            Purple = 6,
+            Green = 7
+        }
+
+        // Déclaration des matériaux
         [SerializeField]
         Material deFault;
 
@@ -33,107 +47,95 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         [SerializeField]
         Material purple;
 
-        Dictionary<int, Material> materials = new Dictionary<int, Material>(7);
+        // Dictionnaire des matériaux avec ColorType comme clé
+        Dictionary<ColorType, Material> materials = new Dictionary<ColorType, Material>();
 
-        int currentColor = 0;
+        // Variable pour suivre la couleur actuelle
+        ColorType currentColor = ColorType.Default;
 
         private bool isRoundInProgress = false;
 
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        // Start est appelé une seule fois avant le premier Update
         void Awake()
         {
-            //Initialize dictionary of materials
-            materials.Add(0, deFault);
-            materials.Add(1, blue);
-            materials.Add(2, red);
-            materials.Add(3, yellow);
-            materials.Add(4, pink);
-            materials.Add(5, orange);
-            materials.Add(6, purple);
-            materials.Add(7, green);
+            // Initialisation du dictionnaire avec les couleurs et les matériaux associés
+            materials.Add(ColorType.Default, deFault);
+            materials.Add(ColorType.Blue, blue);
+            materials.Add(ColorType.Red, red);
+            materials.Add(ColorType.Yellow, yellow);
+            materials.Add(ColorType.Pink, pink);
+            materials.Add(ColorType.Orange, orange);
+            materials.Add(ColorType.Purple, purple);
+            materials.Add(ColorType.Green, green);
         }
-
 
         private void Start()
         {
-            ChangeMaterial(0);
-            StartMiniGame();
+            ChangeMaterial(ColorType.Default); // Initialiser avec la couleur par défaut
+            StartMiniGame(); // Démarrer le mini-jeu
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-        }
-
+        // Méthode pour déclencher un changement de couleur
         public void TriggerColorChange()
         {
-            // Déclenche l'événement
             OnColorChanged?.Invoke();
         }
 
-        public void ChangeMaterial(int color)
+        // Méthode pour changer le matériau en fonction de la couleur choisie
+        public void ChangeMaterial(ColorType color)
         {
             GetComponent<Renderer>().material = materials[color];
             currentColor = color;
-            Debug.Log("<color=blue>Color : " + color +"</color>");
+            Debug.Log("<color=blue>Color : " + color + "</color>");
         }
 
+        // Démarre le mini-jeu
         public void StartMiniGame()
         {
             StartCoroutine(MiniGame());
         }
 
-        
-
+        // Coroutine pour le déroulement du mini-jeu
         IEnumerator MiniGame()
         {
-
-            //Set Up
             int firstRoundDifficulty = 3;
             int secondRoundDifficulty = 4;
             int finalRoundDifficulty = 5;
 
-            List<int> firstRoundAns = ChooseRandomColor(firstRoundDifficulty);
-            List<int> secondRoundAns = ChooseRandomColor(secondRoundDifficulty);
-            List<int> finalRoundAns = ChooseRandomColor(finalRoundDifficulty);
+            List<ColorType> firstRoundAns = ChooseRandomColor(firstRoundDifficulty);
+            List<ColorType> secondRoundAns = ChooseRandomColor(secondRoundDifficulty);
+            List<ColorType> finalRoundAns = ChooseRandomColor(finalRoundDifficulty);
 
-            //Wait 5 seconds before start game
+            // Attente de 3 secondes avant de commencer
             yield return new WaitForSeconds(3.0f);
 
-            //Start Game
-            //First Round
-
+            // Démarrer le jeu, première manche
             StartCoroutine(changeCubeColor(firstRoundAns, currentColor, firstRoundDifficulty));
-
             yield return new WaitUntil(() => !isRoundInProgress);
 
             yield return new WaitForSeconds(2.0f);
 
-            //Second Round
+            // Deuxième manche
             StartCoroutine(changeCubeColor(secondRoundAns, currentColor, secondRoundDifficulty));
-
             yield return new WaitUntil(() => !isRoundInProgress);
 
             yield return new WaitForSeconds(2.0f);
 
-            //Final Round
+            // Dernière manche
             StartCoroutine(changeCubeColor(finalRoundAns, currentColor, finalRoundDifficulty));
-
-
         }
 
-        //Create a list with the wanted colors
-        private List<int> ChooseRandomColor(int numberColors)
+        // Crée une liste avec les couleurs choisies au hasard
+        private List<ColorType> ChooseRandomColor(int numberColors)
         {
-            List<int> ans = new List<int>();
+            List<ColorType> ans = new List<ColorType>();
 
             while (ans.Count != numberColors)
             {
-                int value = Random.Range(1, 8);
-                Material mat = materials[value];
+                ColorType value = (ColorType)Random.Range(1, Enum.GetValues(typeof(ColorType)).Length); // Récupère une couleur au hasard
                 if (ans.Count != 0)
                 {
-                    //Avoid following duplicates
+                    // Éviter les doublons
                     if (ans[^1] != value)
                     {
                         ans.Add(value);
@@ -144,47 +146,44 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                     ans.Add(value);
                 }
             }
+
             printListDebug(ans);
             return ans;
         }
 
-        //Function to change the color of the cube
-        private IEnumerator changeCubeColor(List<int> answers, int lastValue, int numbersAns)
+        // Fonction pour changer la couleur du cube en fonction de la liste de couleurs
+        private IEnumerator changeCubeColor(List<ColorType> answers, ColorType lastValue, int numbersAns)
         {
             isRoundInProgress = true;
-            foreach (int val in answers)
+            foreach (ColorType val in answers)
             {
                 ChangeMaterial(val);
                 yield return new WaitForSeconds(1.0f);
             }
-            ChangeMaterial(0);
+            ChangeMaterial(ColorType.Default);
 
             bool failed = false;
             int correctColors = 0;
             while (correctColors < numbersAns)
             {
-                yield return new WaitUntil(() => lastValue != currentColor);
+                yield return new WaitUntil(() => lastValue != currentColor); // Attente du changement de couleur
 
                 lastValue = currentColor;
 
-                //OnColorChangedInvoked = false;
-
-                if (currentColor == answers[correctColors])
+                if (currentColor == answers[correctColors]) // Vérification si la couleur actuelle correspond à la bonne réponse
                 {
                     correctColors++;
                 }
-                //Got an answer wrong, end the verification
                 else
                 {
                     failed = true;
                     break;
                 }
-
             }
             yield return new WaitForSeconds(1.0f);
-            ChangeMaterial(0);
+            ChangeMaterial(ColorType.Default);
 
-            //If player failed, restart the round
+            // Si l'utilisateur a échoué, redémarrer la manche
             if (failed)
             {
                 StartCoroutine(changeCubeColor(answers, lastValue, numbersAns));
@@ -195,7 +194,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             }
         }
 
-        void printListDebug(List<int> list)
+        // Affiche les couleurs sélectionnées dans la console pour débogage
+        void printListDebug(List<ColorType> list)
         {
             if (list.Count == 0)
             {
@@ -203,9 +203,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             }
             string res = "<color=red>[";
 
-            foreach (int i in list)
+            foreach (ColorType c in list)
             {
-                res +=  i + ", ";
+                res += c.ToString() + ", ";
             }
 
             res += "]</color>";

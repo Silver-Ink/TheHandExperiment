@@ -4,6 +4,7 @@ using Unity.XR.CoreUtils.Bindings;
 using UnityEngine.XR.Interaction.Toolkit.AffordanceSystem.State;
 using UnityEngine.XR.Interaction.Toolkit.Filtering;
 using UnityEngine.XR.Interaction.Toolkit.Utilities.Tweenables.Primitives;
+using static UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets.ChangeColor;
 
 namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 {
@@ -199,10 +200,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         }
 
         [SerializeField]
-        int color;
+        ColorType color; // Utilisation de l'enum ColorType
 
         [SerializeField]
-        GameObject cube;
+        GameObject cube; // Référence au cube à changer
 
         void OnPokeStateDataUpdated(PokeStateData data)
         {
@@ -223,16 +224,19 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             {
                 m_TransformTweenableVariable.target = m_InitialPosition;
                 Debug.Log("<color=green>Poke détecté sur l'objet : " + gameObject.name + "</color>");
+
+                // Récupérer le script ChangeColor du cube
                 ChangeColor script = cube.GetComponent<ChangeColor>();
 
                 if (script != null)
                 {
-                    // Exemple: Change la couleur en fonction de l'index `color` (par exemple ici, tu utilises 1 pour la couleur rouge)
-                    script.ChangeMaterial(color); // Change la couleur en rouge
-                    script.TriggerColorChange();
+                    // Exemple : Change la couleur en fonction de l'index `color` (ici `color` est déjà de type ColorType)
+                    script.ChangeMaterial(color);  // Change la couleur selon l'enum ColorType
+                    script.TriggerColorChange();  // Déclenche l'événement de changement de couleur
                 }
             }
         }
+
 
         public void ResetFollowTransform()
         {
