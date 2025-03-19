@@ -17,7 +17,8 @@ public class ChangeColor : MonoBehaviour
         Pink = 4,
         Orange = 5,
         Purple = 6,
-        Green = 7
+        Green = 7,
+        Start = 8
     }
 
     // Déclaration des matériaux
@@ -92,7 +93,7 @@ public class ChangeColor : MonoBehaviour
     private void Start()
     {
         ChangeMaterial(ColorType.Default); // Initialiser avec la couleur par défaut
-        StartMiniGame(); // Démarrer le mini-jeu
+        //StartMiniGame(); // Démarrer le mini-jeu
     }
 
     // Méthode pour déclencher un changement de couleur
@@ -119,7 +120,7 @@ public class ChangeColor : MonoBehaviour
         List<ColorType> finalRoundAns = ChooseRandomColor(finalRoundDifficulty);
 
         // Attente de 3 secondes avant de commencer
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(1.0f);
 
         // Démarrer le jeu, première manche
         StartCoroutine(changeCubeColor(firstRoundAns, currentColor, firstRoundDifficulty));
@@ -149,7 +150,7 @@ public class ChangeColor : MonoBehaviour
 
         while (ans.Count != numberColors)
         {
-            ColorType value = (ColorType)Random.Range(1, Enum.GetValues(typeof(ColorType)).Length); // Récupère une couleur au hasard
+            ColorType value = (ColorType)Random.Range(1, Enum.GetValues(typeof(ColorType)).Length - 1); // Récupère une couleur au hasard
             if (ans.Count != 0)
             {
                 // Éviter les doublons

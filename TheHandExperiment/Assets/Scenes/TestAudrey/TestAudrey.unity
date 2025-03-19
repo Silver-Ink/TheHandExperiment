@@ -4642,6 +4642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniGame
       objectReference: {fileID: 0}
+    - target: {fileID: 5282193024757390158, guid: 5b3afa34a1e08954f8c8f5e65d0ac681, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.011
+      objectReference: {fileID: 0}
     - target: {fileID: 7014364708054943376, guid: 5b3afa34a1e08954f8c8f5e65d0ac681, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

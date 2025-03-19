@@ -15,7 +15,6 @@ public class PhysicsButton : MonoBehaviour
 	public bool isPressed;
 	private bool prevPressedState;
 	public AudioSource pressedSound;
-	//public AudioSource releasedSound;
 	public Collider[] CollidersToIgnore;
 	public UnityEvent onPressed;
 	public UnityEvent onReleased;
@@ -91,12 +90,13 @@ public class PhysicsButton : MonoBehaviour
 
 		ChangeColor script = cube.GetComponent<ChangeColor>();
 
+		pressedSound.pitch = 1;
+		pressedSound.Play();
+
 		if (script != null)
 		{
 			if (!script.IsMiniGamePlaying) //Permet de ne pas changer la couleur du cube lorsque les réponses sont affichées
             {
-				pressedSound.pitch = 1;
-				pressedSound.Play();
 				script.ChangeMaterial(color);  // Change la couleur selon l'enum ColorType
 			}
 		}
@@ -104,6 +104,12 @@ public class PhysicsButton : MonoBehaviour
 
 	void Released()
 	{
+		ChangeColor script = cube.GetComponent<ChangeColor>();
+		if (color == ChangeColor.ColorType.Start)
+		{
+			script.StartMiniGame();
+			gameObject.SetActive(false);
+		}
 		prevPressedState = isPressed;
 		/*releasedSound.pitch = Random.Range(1.1f, 1.2f);
 		releasedSound.Play();*/
