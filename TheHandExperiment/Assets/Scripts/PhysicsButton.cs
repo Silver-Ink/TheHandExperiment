@@ -105,10 +105,13 @@ public class PhysicsButton : MonoBehaviour
 	void Released()
 	{
 		ChangeColor script = cube.GetComponent<ChangeColor>();
-		if (color == ChangeColor.ColorType.Start)
+		if (script != null)
 		{
-			script.StartMiniGame();
-			gameObject.SetActive(false);
+			if (color == ChangeColor.ColorType.Start)
+			{
+				script.StartMiniGame();
+				gameObject.SetActive(false);
+			}
 		}
 		prevPressedState = isPressed;
 		/*releasedSound.pitch = Random.Range(1.1f, 1.2f);

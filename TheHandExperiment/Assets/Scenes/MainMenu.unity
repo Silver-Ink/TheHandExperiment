@@ -525,6 +525,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 486926af7570df94e85f1746b8f2c36c, type: 2}
     - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
+      propertyPath: cube
+      value: 
+      objectReference: {fileID: 2012663154}
+    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
       propertyPath: color
       value: 2
       objectReference: {fileID: 0}
@@ -1176,6 +1180,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: b0846841bb211144891cf3ac7a936c9b, type: 2}
     - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
+      propertyPath: cube
+      value: 
+      objectReference: {fileID: 2012663154}
+    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
       propertyPath: color
       value: 7
       objectReference: {fileID: 0}
@@ -1272,6 +1280,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2210444617493609126, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
   m_PrefabInstance: {fileID: 1262826778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2012663154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6640387835271095783, guid: 72138a47ec7b8714c91aa39dcdf3b714, type: 3}
+  m_PrefabInstance: {fileID: 861856127}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2092139007
 GameObject:
