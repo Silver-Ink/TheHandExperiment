@@ -9,7 +9,7 @@ namespace Scenes.MainMenu
     {
         public void ToLevel()
         {
-            SceneManager.LoadScene("Leo_Scene");
+            SceneManager.LoadScene("Level1"); 
         }
 
         public void ToQuit()
