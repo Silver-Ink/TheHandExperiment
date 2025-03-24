@@ -1625,15 +1625,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3739531427751771823, guid: 5b3afa34a1e08954f8c8f5e65d0ac681, type: 3}
       propertyPath: finalRoundDifficulty
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3739531427751771823, guid: 5b3afa34a1e08954f8c8f5e65d0ac681, type: 3}
       propertyPath: firstRoundDifficulty
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3739531427751771823, guid: 5b3afa34a1e08954f8c8f5e65d0ac681, type: 3}
       propertyPath: secondRoundDifficulty
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3847966974050986154, guid: 5b3afa34a1e08954f8c8f5e65d0ac681, type: 3}
       propertyPath: m_IsActive
