@@ -1691,6 +1691,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 17.267
       objectReference: {fileID: 0}
+    - target: {fileID: 3739531427751771823, guid: 5b3afa34a1e08954f8c8f5e65d0ac681, type: 3}
+      propertyPath: finalRoundDifficulty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739531427751771823, guid: 5b3afa34a1e08954f8c8f5e65d0ac681, type: 3}
+      propertyPath: firstRoundDifficulty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739531427751771823, guid: 5b3afa34a1e08954f8c8f5e65d0ac681, type: 3}
+      propertyPath: secondRoundDifficulty
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5186001616340767771, guid: 5b3afa34a1e08954f8c8f5e65d0ac681, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.175
