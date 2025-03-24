@@ -2,7 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
+[System.Serializable]
+public class ChangeColorEvent : UnityEvent<ChangeColor.ColorType> { }
+[System.Serializable]
+public class ChangeObjectEvent : UnityEvent<GameObject> { }
 public class PhysicsButton : MonoBehaviour
 {
 	public Rigidbody buttonTopRigid;
@@ -18,12 +23,14 @@ public class PhysicsButton : MonoBehaviour
 	public Collider[] CollidersToIgnore;
 	public UnityEvent onPressed;
 	public UnityEvent onReleased;
-
-	[SerializeField]
+	public ChangeColorEvent onPressedColor;
+	public ChangeObjectEvent onReleasedObject;
+	
+	[SerializeField] public 
     ChangeColor.ColorType color; // Utilisation de l'enum ColorType
 
 	[SerializeField]
-	GameObject cube; // Référence au cube à changer
+	GameObject cube; // RÃ©fÃ©rence au cube Ã  changer
 
 	// Start is called before the first frame update
 	void Start()
@@ -87,23 +94,26 @@ public class PhysicsButton : MonoBehaviour
 	{
 		prevPressedState = isPressed;
 		onPressed.Invoke();
-
-		ChangeColor script = cube.GetComponent<ChangeColor>();
-
+		onPressedColor.Invoke(color);
+		
 		pressedSound.pitch = 1;
 		pressedSound.Play();
+		/*
+		ChangeColor script = cube.GetComponent<ChangeColor>();
 
 		if (script != null)
 		{
-			if (!script.IsMiniGamePlaying) //Permet de ne pas changer la couleur du cube lorsque les réponses sont affichées
+			if (!script.IsMiniGamePlaying) //Permet de ne pas changer la couleur du cube lorsque les rÃ©ponses sont affichÃ©es
             {
 				script.ChangeMaterial(color);  // Change la couleur selon l'enum ColorType
 			}
 		}
+		*/
 	}
 
 	void Released()
 	{
+		/*
 		ChangeColor script = cube.GetComponent<ChangeColor>();
 		if (script != null)
 		{
@@ -113,9 +123,11 @@ public class PhysicsButton : MonoBehaviour
 				gameObject.SetActive(false);
 			}
 		}
+		*/
 		prevPressedState = isPressed;
 		/*releasedSound.pitch = Random.Range(1.1f, 1.2f);
 		releasedSound.Play();*/
 		onReleased.Invoke();
+		onReleasedObject.Invoke(gameObject);
 	}
 }

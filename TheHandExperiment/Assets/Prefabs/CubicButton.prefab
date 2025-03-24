@@ -461,6 +461,9 @@ MonoBehaviour:
   onReleased:
     m_PersistentCalls:
       m_Calls: []
+  onReleasedOther:
+    m_PersistentCalls:
+      m_Calls: []
   color: 3
   cube: {fileID: 0}
 --- !u!82 &3674840832011211535

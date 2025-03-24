@@ -16,5 +16,10 @@ namespace Scenes.MainMenu
         {
             Application.Quit();
         }
+
+        public void ToTutorial()
+        {
+            SceneManager.LoadScene("Tutorial_Scene");
+        }
     }
 }
