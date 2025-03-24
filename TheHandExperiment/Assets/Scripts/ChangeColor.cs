@@ -269,7 +269,7 @@ public class ChangeColor : MonoBehaviour
     public void LoadNextLevel(int levelNumber)
     {
         if (levelNumber < 0)
-            return;
+            SceneManager.LoadScene("MainMenu");
         SceneManager.LoadScene("Level" + levelNumber);
     }
 }
