@@ -1830,6 +1830,24 @@ MonoBehaviour:
   onReleased:
     m_PersistentCalls:
       m_Calls: []
+  onPressedColor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3327756431039947220}
+        m_TargetAssemblyTypeName: MiniGame, Assembly-CSharp
+        m_MethodName: ChangeCubeColoring
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onReleasedObject:
+    m_PersistentCalls:
+      m_Calls: []
   color: 1
   cube: {fileID: 704151824152046154}
 --- !u!82 &7999468569876538061
@@ -2229,6 +2247,24 @@ MonoBehaviour:
   onReleased:
     m_PersistentCalls:
       m_Calls: []
+  onPressedColor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3327756431039947220}
+        m_TargetAssemblyTypeName: MiniGame, Assembly-CSharp
+        m_MethodName: ChangeCubeColoring
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onReleasedObject:
+    m_PersistentCalls:
+      m_Calls: []
   color: 5
   cube: {fileID: 704151824152046154}
 --- !u!82 &4124671854859024597
@@ -2562,6 +2598,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onPressedColor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3327756431039947220}
+        m_TargetAssemblyTypeName: MiniGame, Assembly-CSharp
+        m_MethodName: ChangeCubeColoring
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onReleasedObject:
     m_PersistentCalls:
       m_Calls: []
   color: 4
@@ -3457,6 +3511,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5186001616340767771}
+  - component: {fileID: 3327756431039947220}
   m_Layer: 0
   m_Name: MiniGame
   m_TagString: Untagged
@@ -3489,6 +3544,19 @@ Transform:
   - {fileID: 3378731525814600930}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3327756431039947220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5188816798477245725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd74708db5d6b04e9b0f524b75782b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cube: {fileID: 704151824152046154}
 --- !u!1 &5401067188076555030
 GameObject:
   m_ObjectHideFlags: 0
@@ -3887,6 +3955,24 @@ MonoBehaviour:
   onReleased:
     m_PersistentCalls:
       m_Calls: []
+  onPressedColor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3327756431039947220}
+        m_TargetAssemblyTypeName: MiniGame, Assembly-CSharp
+        m_MethodName: ChangeCubeColoring
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onReleasedObject:
+    m_PersistentCalls:
+      m_Calls: []
   color: 6
   cube: {fileID: 704151824152046154}
 --- !u!82 &1925022311765884761
@@ -4220,6 +4306,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onPressedColor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3327756431039947220}
+        m_TargetAssemblyTypeName: MiniGame, Assembly-CSharp
+        m_MethodName: ChangeCubeColoring
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onReleasedObject:
     m_PersistentCalls:
       m_Calls: []
   color: 2
@@ -4683,6 +4787,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onReleased:
+    m_PersistentCalls:
+      m_Calls: []
+  onPressedColor:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3327756431039947220}
+        m_TargetAssemblyTypeName: MiniGame, Assembly-CSharp
+        m_MethodName: ChangeCubeColoring
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onReleasedObject:
     m_PersistentCalls:
       m_Calls: []
   color: 7
@@ -5154,6 +5276,122 @@ PrefabInstance:
       propertyPath: threshHold
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedColor.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedOther.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedObject.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3327756431039947220}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedColor.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedOther.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartingMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedObject.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedColor.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3327756431039947220}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedOther.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3327756431039947220}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedObject.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3327756431039947220}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedColor.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedOther.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedColor.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartingMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedObject.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedOther.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartingMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedObject.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartingMiniGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiniGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedColor.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiniGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedOther.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiniGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedObject.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiniGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedObject.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 2512592880511633815}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedColor.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedOther.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleasedObject.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.254
@@ -5207,6 +5445,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+--- !u!1 &2512592880511633815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8448058917090945151, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+  m_PrefabInstance: {fileID: 6332920047376572904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5282193024757390158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2210444617493609126, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
@@ -5224,6 +5467,30 @@ PrefabInstance:
       propertyPath: cube
       value: 
       objectReference: {fileID: 704151824152046154}
+    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
+      propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
+      propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3327756431039947220}
+    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
+      propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
+      propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeCubeColoring
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
+      propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiniGame, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
+      propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.598
