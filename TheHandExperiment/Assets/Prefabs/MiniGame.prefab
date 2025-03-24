@@ -1333,7 +1333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 2.38}
   m_SizeDelta: {x: 1243, y: 509}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6845797033236838140
@@ -5468,29 +5468,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 704151824152046154}
     - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
-      propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
       propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3327756431039947220}
-    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
-      propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
-      propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeCubeColoring
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
-      propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MiniGame, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
-      propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.598
