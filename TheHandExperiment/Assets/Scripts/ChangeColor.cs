@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class ChangeColor : MonoBehaviour
@@ -54,6 +56,8 @@ public class ChangeColor : MonoBehaviour
     public int firstRoundDifficulty = 3;
     public int secondRoundDifficulty = 3;
     public int finalRoundDifficulty = 3;
+
+    public UnityEvent OnGameComplete;
 
     private bool isMiniGamePlaying = false;
     private LevelsScores levelsScores;
@@ -155,6 +159,7 @@ public class ChangeColor : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         succeedSound.Play();
+        OnGameComplete.Invoke();
 
         levelsScores.DebugCurrentScore();
 
@@ -259,6 +264,13 @@ public class ChangeColor : MonoBehaviour
         res += "]</color>";
 
         Debug.Log(res);
+    }
+
+    public void LoadNextLevel(int levelNumber)
+    {
+        if (levelNumber < 0)
+            return;
+        SceneManager.LoadScene("Level" + levelNumber);
     }
 }
 
