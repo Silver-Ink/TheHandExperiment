@@ -120,7 +120,7 @@ public class LevelsScores : MonoBehaviour
     public void DisplayScore()
     {
         // Crée une chaîne pour afficher le score
-        string displayText = "";
+        string displayText = "Score\n";
         float totalTime = 0f;
         int totalerrors = 0;
 
