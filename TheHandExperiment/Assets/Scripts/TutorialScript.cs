@@ -113,6 +113,8 @@ public class TutorialScript : MonoBehaviour
         StartCoroutine(ChangeCubeColor(firstRoundAns, _currentColor, firstRoundDifficulty));
         yield return new WaitUntil(() => !_isRoundInProgress);
 
+        quitText.SetActive(true);
+
         yield return new WaitForSeconds(2.0f);
 
         // Deuxième manche
@@ -128,7 +130,6 @@ public class TutorialScript : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         succeedSound.Play();
-        quitText.SetActive(true);
     }
 
     // Crée une liste avec les couleurs choisies au hasard

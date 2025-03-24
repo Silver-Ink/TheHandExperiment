@@ -156,8 +156,6 @@ public class ChangeColor : MonoBehaviour
 
         succeedSound.Play();
 
-        //levelsScores.AddTotalScore();
-
         levelsScores.DebugCurrentScore();
 
         levelsScores.DisplayScore();
