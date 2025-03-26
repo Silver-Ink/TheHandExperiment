@@ -2800,6 +2800,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 17.267
       objectReference: {fileID: 0}
+    - target: {fileID: 2888153320710143609, guid: 5b3afa34a1e08954f8c8f5e65d0ac681, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3678227753942067584, guid: 5b3afa34a1e08954f8c8f5e65d0ac681, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.201
@@ -3695,7 +3699,9 @@ MonoBehaviour:
   m_text: 'Good job! However, during the levels, your hands will only be seen through
     the screens.
 
-    You can now go back to the main menu'
+    Press the button below to go back to main menu
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
