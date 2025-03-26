@@ -461,6 +461,12 @@ MonoBehaviour:
   onReleased:
     m_PersistentCalls:
       m_Calls: []
+  onPressedColor:
+    m_PersistentCalls:
+      m_Calls: []
+  onReleasedObject:
+    m_PersistentCalls:
+      m_Calls: []
   color: 0
   cube: {fileID: 0}
 --- !u!82 &3674840832011211535
@@ -470,7 +476,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8448058917090945151}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 424f399ccc6e3374d91a626ac1beb9a0, type: 3}
