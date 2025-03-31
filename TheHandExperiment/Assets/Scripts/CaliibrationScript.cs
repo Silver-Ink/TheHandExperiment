@@ -8,9 +8,6 @@ public class CaliibrationScript : MonoBehaviour
     [SerializeField] private GameObject LeftRaycastOrigin;
     [SerializeField] private GameObject LeftRaycastDirection;
     [SerializeField] private GameObject LeftRaycastDirectionUp;
-    [SerializeField] private GameObject RightRaycastOrigin;
-    [SerializeField] private GameObject RightRaycastDirection;
-    [SerializeField] private GameObject RightRaycastDirectionUp;
 
     [SerializeField] private GameObject Character1;
     [SerializeField] private GameObject Character2;
@@ -55,15 +52,9 @@ public class CaliibrationScript : MonoBehaviour
         Vector3 leftDup = LeftRaycastDirectionUp.transform.position;
         RaycastHit LeftRC;
 
-        Vector3 rightO = LeftRaycastOrigin.transform.position;
-        Vector3 rightD = LeftRaycastDirection.transform.position;
-        Vector3 rightDup = LeftRaycastDirectionUp.transform.position;
-        RaycastHit RightRC;
-
         int mask = 1 << 6;
 		// int mask = LayerMask.GetMask(LayerMaskStringName);
         bool rc1 = Physics.Raycast(leftO, leftD - leftO, out LeftRC, 1000, mask);
-        bool rc2;
         
         //if (LeftRC.collider)
         if (rc1)
@@ -73,15 +64,7 @@ public class CaliibrationScript : MonoBehaviour
                 rc1 = Physics.Raycast(leftO, leftDup - leftO, out LeftRC, 1000, mask);
 
                 if (rc1)
-                {
-
-                    rc2 = Physics.Raycast(rightO, rightDup - rightO, out RightRC, 1000, mask);
-
-					if (rc1 && rc2)
-					{
-						return -(RightRC.distance + LeftRC.distance) / 2f;
-					}
-				}
+                    return -LeftRC.distance;
                 else
                     Debug.Log("No hit ");
 			}
@@ -91,16 +74,10 @@ public class CaliibrationScript : MonoBehaviour
             //Debug.Log("No collider Found :(");
             return 0f;
         }
-        
 
 
 
-        rc2 = Physics.Raycast(rightO, rightD - rightO, out RightRC, 1000, mask);
-        if (rc1 && rc2)
-		{
-            return (RightRC.distance + LeftRC.distance) / 2f; 
-		}
 
-        return 0f;
+        return LeftRC.distance;
     }
 }
