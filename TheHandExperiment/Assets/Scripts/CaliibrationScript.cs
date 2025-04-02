@@ -11,27 +11,20 @@ public class CaliibrationScript : MonoBehaviour
 
     [SerializeField] private GameObject Character1;
     [SerializeField] private GameObject Character2;
-    [SerializeField] private float CountDown = 5;
     private bool performRaycast = false;
-    private bool timeElapsed = false;
+
+    private float InitalCharacterHeight;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        InitalCharacterHeight = Character1.transform.position.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CountDown -= Time.deltaTime;
-        if (CountDown <= 0 && !timeElapsed)
-		{
-            performRaycast = true;
-            timeElapsed = true;
-		}
-
         if (performRaycast)
         {
             float dist = Raycast();
@@ -41,6 +34,7 @@ public class CaliibrationScript : MonoBehaviour
                 Debug.Log("Distance " + dist.ToString());
                 Character1.transform.position += new Vector3(0, -dist, 0);
                 Character2.transform.position += new Vector3(0, -dist, 0);
+                CalibrationSingleton.Instance.HeightAjustment = Character1.transform.position.y - InitalCharacterHeight;
 			}
         }
     }
@@ -53,6 +47,9 @@ public class CaliibrationScript : MonoBehaviour
         RaycastHit LeftRC;
 
         int mask = 1 << 6;
+
+        if ((leftD - leftO).y >= 0) // if hand is facing upward
+            return 0f;
 		// int mask = LayerMask.GetMask(LayerMaskStringName);
         bool rc1 = Physics.Raycast(leftO, leftD - leftO, out LeftRC, 1000, mask);
         
@@ -79,5 +76,15 @@ public class CaliibrationScript : MonoBehaviour
 
 
         return LeftRC.distance;
+    }
+
+    public void StartCallibration()
+	{
+        performRaycast = true;
+	}
+
+    public void EndCallibration()
+    {
+        performRaycast = false;
     }
 }
