@@ -19,6 +19,10 @@ namespace Scenes.MainMenu
 
         public void ToQuit()
         {
+            if (!script)
+            {
+                Debug.Log("<color=red>Null !</color>");            
+            }
             script.WriteCSV();
             Application.Quit();
         }

@@ -161,7 +161,7 @@ public class ChangeColor : MonoBehaviour
         succeedSound.Play();
         OnGameComplete.Invoke();
 
-        levelsScores.DebugCurrentScore();
+        levelsScores.AddTotalScore();
 
         levelsScores.DisplayScore();
     }
@@ -241,7 +241,6 @@ public class ChangeColor : MonoBehaviour
         else
         {
             levelsScores.UpdateScore(round, errors, timer);
-            //levelsScores
             rightSound.Play();
             isRoundInProgress = false;
         }
