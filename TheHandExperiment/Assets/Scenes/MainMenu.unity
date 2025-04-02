@@ -680,6 +680,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
+      propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -983,6 +987,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2210444617493609126, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
   m_PrefabInstance: {fileID: 457064221}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &530539076
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2040403234300696471, guid: e618f9bcc51a55e46993b6b8f1d1b919, type: 3}
+      propertyPath: m_Name
+      value: PlayerScoreManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969971815225319720, guid: e618f9bcc51a55e46993b6b8f1d1b919, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.28618369
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969971815225319720, guid: e618f9bcc51a55e46993b6b8f1d1b919, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.117547
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969971815225319720, guid: e618f9bcc51a55e46993b6b8f1d1b919, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.45929816
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969971815225319720, guid: e618f9bcc51a55e46993b6b8f1d1b919, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969971815225319720, guid: e618f9bcc51a55e46993b6b8f1d1b919, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969971815225319720, guid: e618f9bcc51a55e46993b6b8f1d1b919, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969971815225319720, guid: e618f9bcc51a55e46993b6b8f1d1b919, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969971815225319720, guid: e618f9bcc51a55e46993b6b8f1d1b919, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969971815225319720, guid: e618f9bcc51a55e46993b6b8f1d1b919, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6969971815225319720, guid: e618f9bcc51a55e46993b6b8f1d1b919, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460519401864496151, guid: e618f9bcc51a55e46993b6b8f1d1b919, type: 3}
+      propertyPath: playerName
+      value: Audrey
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e618f9bcc51a55e46993b6b8f1d1b919, type: 3}
 --- !u!1001 &714146727
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1620,6 +1685,10 @@ PrefabInstance:
     - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
+      propertyPath: onPressedColor.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1754840230210060349, guid: bf39ce756469d814ebe0ca4125642f57, type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -3099,4 +3168,4 @@ SceneRoots:
   - {fileID: 714146727}
   - {fileID: 1005917906}
   - {fileID: 2099372930}
-  - {fileID: 1459387562}
+  - {fileID: 530539076}

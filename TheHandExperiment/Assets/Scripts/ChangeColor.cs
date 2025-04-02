@@ -162,6 +162,7 @@ public class ChangeColor : MonoBehaviour
         OnGameComplete.Invoke();
 
         levelsScores.DebugCurrentScore();
+        levelsScores.AddTotalScore();
 
         levelsScores.DisplayScore();
     }

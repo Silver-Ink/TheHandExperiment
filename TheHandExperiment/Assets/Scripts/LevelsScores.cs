@@ -26,9 +26,6 @@ public class LevelsScores : MonoBehaviour
     // currentScore est réinitialisé à chaque début de partie
     public LevelScore currentScore = new LevelScore();
 
-    [SerializeField]
-    public int playerNumber = 0;
-
     [System.Serializable]
     public class PlayerList
     {
@@ -42,11 +39,9 @@ public class LevelsScores : MonoBehaviour
 
     public void InitializeTestData()
     {
-        Debug.Log("<color=green>Here 1.5 </color>");
         // Initialisation des données de test pour la première fois
         if (PlayerScoreManager.Instance.playerScore.levelScore.Count == 0)
         {
-            Debug.Log("<color=green>Here 1 </color>");
             PlayerScoreManager.Instance.playerScore.levelScore = new List<LevelScore>();
 
             LevelScore player1Level1 = new LevelScore
@@ -104,10 +99,8 @@ public class LevelsScores : MonoBehaviour
         // Ajoute ce score à la liste persistante dans PlayerScoreManager
         PlayerScoreManager.Instance.AddPlayerScore(currentScore);
 
-        // Réinitialise currentScore pour le prochain round
-        currentScore = new LevelScore();
-
         Debug.Log("Total errors: " + totalerrors + ", Total Time: " + totalTime);
+        //DisplayScore();
     }
 
     public void DebugCurrentScore()
@@ -127,22 +120,19 @@ public class LevelsScores : MonoBehaviour
 
     public void DisplayScore()
     {
+        Debug.Log("<color=blue>Display Score</color>");
         string displayText = "Score\n";
-        float totalTime = 0f;
-        int totalerrors = 0;
 
-        for (int i = 0; i < currentScore.Count; i++)
+        for (int i = 0; i < currentScore.Count - 1; i++)
         {
-            totalTime += currentScore[i].time;
-            totalerrors += currentScore[i].errors;
-
             string formattedValue = currentScore[i].time.ToString("F2");
             displayText += $"Round {i + 1} : {currentScore[i].errors} errors, {formattedValue} s\n";
         }
 
-        string formattedTotal = totalTime.ToString("F2");
-        displayText += $"Total : {totalerrors} errors, {formattedTotal} s";
+        string formattedTotal = currentScore[currentScore.Count -1].time.ToString("F2");
+        displayText += $"Total : {currentScore[currentScore.Count-1].errors} errors, {formattedTotal} s";
 
+        Debug.Log("<color=blue>Text : " + displayText + "</color>");
         text.text = displayText;
         textScore.SetActive(true);
     }
@@ -150,14 +140,12 @@ public class LevelsScores : MonoBehaviour
     public void WriteCSV()
     {
         
-        InitializeTestData();
-        Debug.Log("<color=green>Here 0 </color>");
+        //InitializeTestData();
         filename = Application.dataPath + "/usersResults.csv";
         bool fileExists = File.Exists(filename);
 
         if (PlayerScoreManager.Instance.playerScore.levelScore.Count > 0)
         {
-            Debug.Log("<color=green>Here 2 </color>");
             TextWriter tw = new StreamWriter(filename, true);
             if (!fileExists)
             {
@@ -168,7 +156,7 @@ public class LevelsScores : MonoBehaviour
             string secondcolumn = "";
             string thirdcolumn = "";
 
-            firstcolumn = (playerNumber + 1) + ";";
+            firstcolumn = PlayerScoreManager.Instance.playerName + ";";
             for (int j = 0; j < PlayerScoreManager.Instance.playerScore.levelScore.Count; j++)
             {
                 secondcolumn = firstcolumn + (j + 1) + ";";

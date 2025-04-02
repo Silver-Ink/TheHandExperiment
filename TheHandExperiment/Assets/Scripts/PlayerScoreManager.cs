@@ -8,6 +8,8 @@ public class PlayerScoreManager : MonoBehaviour
     // Liste contenant les scores des joueurs
     public LevelsScores.PlayerList playerScore = new LevelsScores.PlayerList();
 
+    public string playerName = "";
+
     private void Awake()
     {
         // Singleton pour s'assurer qu'il n'y ait qu'une seule instance de PlayerScoreManager
@@ -26,6 +28,11 @@ public class PlayerScoreManager : MonoBehaviour
     public void AddPlayerScore(LevelsScores.LevelScore score)
     {
         playerScore.levelScore.Add(score);
+    }
+
+    public string GetPlayerNumber()
+    {
+        return playerName;
     }
 
     // Méthode pour réinitialiser les scores des joueurs si nécessaire
