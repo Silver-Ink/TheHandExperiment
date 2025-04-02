@@ -8,7 +8,7 @@ public class PlayerScoreManager : MonoBehaviour
     // Liste contenant les scores des joueurs
     public LevelsScores.PlayerList playerScore = new LevelsScores.PlayerList();
 
-    public int playerNumber;
+    public string playerName = "";
 
     private void Awake()
     {
@@ -30,9 +30,9 @@ public class PlayerScoreManager : MonoBehaviour
         playerScore.levelScore.Add(score);
     }
 
-    public int GetPlayerNumber()
+    public string GetPlayerNumber()
     {
-        return playerNumber;
+        return playerName;
     }
 
     // Méthode pour réinitialiser les scores des joueurs si nécessaire

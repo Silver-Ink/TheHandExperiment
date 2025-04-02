@@ -4960,7 +4960,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 100}
+  m_SizeDelta: {x: 300, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5905664816600569123
 CanvasRenderer:
@@ -5019,7 +5019,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64.15
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5942,7 +5942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -5953,6 +5953,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3739531427751771823}
@@ -5961,11 +5965,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4402017111620512451}
     - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2507761278073585846}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
@@ -5977,12 +5989,20 @@ PrefabInstance:
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: WriteCSV
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ChangeColor, Unity.XR.Interaction.Toolkit.Samples.StarterAssets
       objectReference: {fileID: 0}
     - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: LevelsScores, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
@@ -5993,11 +6013,19 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1754840230210060349, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+      propertyPath: onReleased.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
@@ -6057,6 +6085,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+--- !u!114 &2507761278073585846 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9034207712005612343, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
+  m_PrefabInstance: {fileID: 6886759834624861057}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4402017111620512451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef0d0b72f3707742989223a35e4df18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4402017111620512451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7099279027800295746, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}

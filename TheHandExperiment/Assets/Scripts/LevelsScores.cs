@@ -100,6 +100,7 @@ public class LevelsScores : MonoBehaviour
         PlayerScoreManager.Instance.AddPlayerScore(currentScore);
 
         Debug.Log("Total errors: " + totalerrors + ", Total Time: " + totalTime);
+        //DisplayScore();
     }
 
     public void DebugCurrentScore()
@@ -119,6 +120,7 @@ public class LevelsScores : MonoBehaviour
 
     public void DisplayScore()
     {
+        Debug.Log("<color=blue>Display Score</color>");
         string displayText = "Score\n";
 
         for (int i = 0; i < currentScore.Count - 1; i++)
@@ -127,9 +129,10 @@ public class LevelsScores : MonoBehaviour
             displayText += $"Round {i + 1} : {currentScore[i].errors} errors, {formattedValue} s\n";
         }
 
-        string formattedTotal = currentScore[currentScore.Count].time.ToString("F2");
-        displayText += $"Total : {currentScore[currentScore.Count].errors} errors, {formattedTotal} s";
+        string formattedTotal = currentScore[currentScore.Count -1].time.ToString("F2");
+        displayText += $"Total : {currentScore[currentScore.Count-1].errors} errors, {formattedTotal} s";
 
+        Debug.Log("<color=blue>Text : " + displayText + "</color>");
         text.text = displayText;
         textScore.SetActive(true);
     }
@@ -143,7 +146,6 @@ public class LevelsScores : MonoBehaviour
 
         if (PlayerScoreManager.Instance.playerScore.levelScore.Count > 0)
         {
-            Debug.Log("<color=green>Here 1 </color>");
             TextWriter tw = new StreamWriter(filename, true);
             if (!fileExists)
             {
@@ -154,14 +156,12 @@ public class LevelsScores : MonoBehaviour
             string secondcolumn = "";
             string thirdcolumn = "";
 
-            firstcolumn = (PlayerScoreManager.Instance.playerNumber + 1) + ";";
+            firstcolumn = PlayerScoreManager.Instance.playerName + ";";
             for (int j = 0; j < PlayerScoreManager.Instance.playerScore.levelScore.Count; j++)
             {
-                Debug.Log("<color=green>Here 2 </color>");
                 secondcolumn = firstcolumn + (j + 1) + ";";
                 for (int t = 0; t < PlayerScoreManager.Instance.playerScore.levelScore[j].Count; t++)
                 {
-                    Debug.Log("<color=green>Here 3 </color>");
                     thirdcolumn = secondcolumn + (t + 1) + "; Time : " + PlayerScoreManager.Instance.playerScore.levelScore[j][t].time.ToString("F2");
                     tw.WriteLine(thirdcolumn);
                     tw.WriteLine(" ; ; ; Errors : " + PlayerScoreManager.Instance.playerScore.levelScore[j][t].errors);

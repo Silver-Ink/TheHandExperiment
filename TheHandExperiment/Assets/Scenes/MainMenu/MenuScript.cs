@@ -7,11 +7,6 @@ namespace Scenes.MainMenu
 {
     public class MenuScript : MonoBehaviour
     {
-        private LevelsScores script;
-        private void Start()
-        {
-            script = GetComponent<LevelsScores>();
-        }
         public void ToLevel()
         {
             SceneManager.LoadScene("Level1"); 
@@ -19,11 +14,6 @@ namespace Scenes.MainMenu
 
         public void ToQuit()
         {
-            if (!script)
-            {
-                Debug.Log("<color=red>Null !</color>");            
-            }
-            script.WriteCSV();
             Application.Quit();
         }
 
