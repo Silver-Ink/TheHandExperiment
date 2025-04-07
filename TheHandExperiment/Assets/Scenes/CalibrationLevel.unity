@@ -157,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.3
+      value: -0.153
       objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -165,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.073
+      value: -1.174
       objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1513,7 +1513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.154
+      value: -0.299
       objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1521,7 +1521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.3
+      value: -1.072
       objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1629,12 +1629,10 @@ MonoBehaviour:
   ConfirmButton: {fileID: 894922369}
   InstructionText: {fileID: 536758270}
   StartText: {fileID: 495864050}
-  IntroText: Bonjour,\nbienvenue dans le niveau calibration.\nAppuyez sur le bouton
-    commencer.
-  CalibrationText: Placer votre main gauche physiquement sur la table devant vous.\nAppuyez
-    avec votre main droite sur 'confirmer' pour terminer
-  SuccessText: "Si le niveau de la table virtuelle correspond\\n \xE0 celui de votre
-    table physique,\\nvous pouvez quitter."
+  IntroText: Hello,\nwelcome to the calibration level.\n
+  CalibrationText: Place your left hand on the table in front of you PHYSICALLY.\nWhen
+    height is correct, use your right hand to press confirm.
+  SuccessText: If virtual table's height match \nthe physical one, press exit.
   CaliibrationScript: {fileID: 1115081057}
 --- !u!1 &397977478
 GameObject:
@@ -2017,7 +2015,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Commencer \nla calibration"
+  m_text: 'Begin
+
+    calibration'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2320,9 +2320,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Quitter
+  m_text: 'Exit
 
-    la calibration'
+    calibration'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3056,9 +3056,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Confirmer
+  m_text: 'Confirm current
 
-    la calibration'
+    calibration'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8093,7 +8093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.85
+      value: -1.3
       objectReference: {fileID: 0}
     - target: {fileID: 2210444617493609126, guid: bc836de8b97d4184c92d1763bddeb6f9, type: 3}
       propertyPath: m_LocalRotation.w

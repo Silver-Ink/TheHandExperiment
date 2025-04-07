@@ -21,5 +21,10 @@ namespace Scenes.MainMenu
         {
             SceneManager.LoadScene("Tutorial_Scene");
         }
+
+        public void ToCalibration()
+        {
+            SceneManager.LoadScene("CalibrationLevel");
+        }
     }
 }

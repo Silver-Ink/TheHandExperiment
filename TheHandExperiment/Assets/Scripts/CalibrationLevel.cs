@@ -17,27 +17,27 @@ public class CalibrationLevel : MonoBehaviour
 
     [SerializeField] private CaliibrationScript CaliibrationScript;
 
+    private bool secondAjustement = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartButton.SetActive(true);
         ExitButton.SetActive(true);
         ConfirmButton.SetActive(false);
-
-        InstructionText.text = IntroText;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
+        OnPressStart();
+
+        InstructionText.text = IntroText + CalibrationText;
     }
 
     public void OnPressStart()
     {
         StartButton.SetActive(false);
         ConfirmButton.SetActive(true);
-        InstructionText.text = CalibrationText;
+        
+        if (secondAjustement)
+            InstructionText.text = CalibrationText;
 
         CaliibrationScript.StartCallibration();
 
@@ -51,9 +51,10 @@ public class CalibrationLevel : MonoBehaviour
         InstructionText.text = SuccessText;
         ConfirmButton.SetActive(false);
         StartButton.SetActive(true);
-        StartText.text = "Recalibrer";
+        StartText.text = "Recalibrate";
 
         CaliibrationScript.EndCallibration();
+        secondAjustement = true;
     }
 
 }
