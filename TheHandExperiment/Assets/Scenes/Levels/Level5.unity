@@ -1867,6 +1867,14 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3008199271190783646, guid: 668d38722d4cbde439dc86059e153348, type: 3}
+      propertyPath: Table1
+      value: 
+      objectReference: {fileID: 1287484213}
+    - target: {fileID: 3008199271190783646, guid: 668d38722d4cbde439dc86059e153348, type: 3}
+      propertyPath: RemotePlayer
+      value: 
+      objectReference: {fileID: 1871356081}
     - target: {fileID: 3686540654184983221, guid: 668d38722d4cbde439dc86059e153348, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -5137,6 +5145,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc831e4a2c6c2314084194dd31aa92f6, type: 3}
+--- !u!1 &1871356081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2392598549188839714, guid: bc831e4a2c6c2314084194dd31aa92f6, type: 3}
+  m_PrefabInstance: {fileID: 1871356080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1893947730
 GameObject:
   m_ObjectHideFlags: 0
