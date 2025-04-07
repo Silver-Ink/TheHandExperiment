@@ -115,18 +115,6 @@ public class TutorialScript : MonoBehaviour
 
         quitText.SetActive(true);
 
-        yield return new WaitForSeconds(2.0f);
-
-        // Deuxième manche
-        StartCoroutine(ChangeCubeColor(secondRoundAns, _currentColor, secondRoundDifficulty));
-        yield return new WaitUntil(() => !_isRoundInProgress);
-
-        yield return new WaitForSeconds(2.0f);
-
-        // Dernière manche
-        StartCoroutine(ChangeCubeColor(finalRoundAns, _currentColor, finalRoundDifficulty));
-        yield return new WaitUntil(() => !_isRoundInProgress);
-
         yield return new WaitForSeconds(1.0f);
 
         succeedSound.Play();
