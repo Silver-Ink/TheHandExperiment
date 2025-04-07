@@ -511,6 +511,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniGame
       objectReference: {fileID: 0}
+    - target: {fileID: 6107315164047806671, guid: 5b3afa34a1e08954f8c8f5e65d0ac681, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 2097933427}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
