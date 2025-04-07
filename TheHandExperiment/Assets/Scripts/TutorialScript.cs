@@ -110,22 +110,10 @@ public class TutorialScript : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         // Démarrer le jeu, première manche
-        StartCoroutine(ChangeCubeColor(firstRoundAns, _currentColor, firstRoundDifficulty));
+        StartCoroutine(ChangeCubeColor(firstRoundAns, ChangeColor.ColorType.Default, firstRoundDifficulty));
         yield return new WaitUntil(() => !_isRoundInProgress);
 
         quitText.SetActive(true);
-
-        yield return new WaitForSeconds(2.0f);
-
-        // Deuxième manche
-        StartCoroutine(ChangeCubeColor(secondRoundAns, _currentColor, secondRoundDifficulty));
-        yield return new WaitUntil(() => !_isRoundInProgress);
-
-        yield return new WaitForSeconds(2.0f);
-
-        // Dernière manche
-        StartCoroutine(ChangeCubeColor(finalRoundAns, _currentColor, finalRoundDifficulty));
-        yield return new WaitUntil(() => !_isRoundInProgress);
 
         yield return new WaitForSeconds(1.0f);
 
