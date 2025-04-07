@@ -141,7 +141,7 @@ public class ChangeColor : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         // Démarrer le jeu, première manche
-        StartCoroutine(changeCubeColor(firstRoundAns, currentColor, firstRoundDifficulty,1));
+        StartCoroutine(changeCubeColor(firstRoundAns, ColorType.Default, firstRoundDifficulty,1));
         yield return new WaitUntil(() => !isRoundInProgress);
 
         yield return new WaitForSeconds(2.0f);
