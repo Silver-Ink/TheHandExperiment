@@ -27,10 +27,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level4.unity
     guid: 8a581ac9fc5c0a94d89f738b2ccabf2a
   - enabled: 1
-    path: Assets/Scenes/Levels/Level5.unity
+    path: Assets/Scenes/Levels/Level Bonus.unity
     guid: 6579ba5b3b19b4e4e80adf01c9402ef4
   - enabled: 1
-    path: Assets/Scenes/Levels/Level6.unity
+    path: Assets/Scenes/Levels/Level5.unity
     guid: 7d1c601547c12b445b9d2553c1a3c5d4
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
