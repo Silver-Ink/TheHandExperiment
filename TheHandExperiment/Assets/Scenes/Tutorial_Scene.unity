@@ -1755,6 +1755,10 @@ PrefabInstance:
       propertyPath: m_Shadows.m_Type
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 829459147647013887, guid: 69e22c8e738ecdc47a07a18994425fcd, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1054261244907589379, guid: 69e22c8e738ecdc47a07a18994425fcd, type: 3}
       propertyPath: _previewGrabPosesMode
       value: 1
@@ -2131,7 +2135,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3353,6 +3357,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 717724539013017833, guid: 69e22c8e738ecdc47a07a18994425fcd, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 829459147647013887, guid: 69e22c8e738ecdc47a07a18994425fcd, type: 3}
       propertyPath: m_Shadows.m_Type
       value: 0
       objectReference: {fileID: 0}

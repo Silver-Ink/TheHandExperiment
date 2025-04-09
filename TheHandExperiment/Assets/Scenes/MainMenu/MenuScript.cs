@@ -9,6 +9,7 @@ namespace Scenes.MainMenu
     {
         public void ToLevel()
         {
+
             SceneManager.LoadScene("Level1"); 
         }
 
