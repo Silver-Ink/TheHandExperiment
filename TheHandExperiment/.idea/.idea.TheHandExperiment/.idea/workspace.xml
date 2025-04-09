@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="62fda361-a72e-465f-a2a6-9d5a96f69af8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TheHandExperiment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TheHandExperiment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CalibrationLevel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CalibrationLevel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UltimateXR/Examples/FullScene/Prefabs/Rooms/ControllersRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UltimateXR/Examples/FullScene/Prefabs/Rooms/ControllersRoom.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +105,7 @@
       <workItem from="1742846466180" duration="6969000" />
       <workItem from="1743452309795" duration="240000" />
       <workItem from="1743453091753" duration="1844000" />
-      <workItem from="1744050328433" duration="2161000" />
+      <workItem from="1744050328433" duration="3055000" />
     </task>
     <servers />
   </component>
