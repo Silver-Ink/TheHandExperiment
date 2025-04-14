@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,9 @@ public class PhysicsButton : MonoBehaviour
 	private float upperLowerDiff;
 	public bool isPressed;
 	private bool prevPressedState;
+	private bool isFastMoveDetected = false;
+	private bool prevFastMoveState;
+	private int fastmoveColliderCount = 0;
 	public AudioSource pressedSound;
 	public Collider[] CollidersToIgnore;
 	public UnityEvent onPressed;
@@ -65,7 +69,7 @@ public class PhysicsButton : MonoBehaviour
 		if (buttonTop.localPosition.y >= 0)
 			buttonTop.transform.position = new Vector3(buttonUpperLimit.position.x, buttonUpperLimit.position.y, buttonUpperLimit.position.z);
 		else
-			buttonTopRigid.AddForce(buttonTop.transform.up * force * Time.deltaTime);
+			buttonTopRigid.AddForce(buttonTop.transform.up * (force * Time.deltaTime));
 
 		if (buttonTop.localPosition.y <= buttonLowerLimit.localPosition.y)
 			buttonTop.transform.position = new Vector3(buttonLowerLimit.position.x, buttonLowerLimit.position.y, buttonLowerLimit.position.z);
@@ -75,59 +79,61 @@ public class PhysicsButton : MonoBehaviour
 			isPressed = true;
 		else
 			isPressed = false;
-
-		if (isPressed && prevPressedState != isPressed)
+		
+		
+		if ((isPressed && prevPressedState != isPressed) ||
+		    (isFastMoveDetected && !isPressed && prevFastMoveState != isFastMoveDetected))
 			Pressed();
-		if (!isPressed && prevPressedState != isPressed)
+		if ((!isPressed && prevPressedState != isPressed) ||
+		    (!isFastMoveDetected && isPressed && prevFastMoveState != isFastMoveDetected))
 			Released();
 	}
 
-	// void FixedUpdate(){
-	//     Vector3 localVelocity = transform.InverseTransformDirection(buttonTop.GetComponent<Rigidbody>().velocity);
-	//     Rigidbody rb = buttonTop.GetComponent<Rigidbody>();
-	//     localVelocity.x = 0;
-	//     localVelocity.z = 0;
-	//     rb.velocity = transform.TransformDirection(localVelocity);
-	// }
-
 	void Pressed()
 	{
+		pressedSound.pitch = 1;
+		pressedSound.Play();
+		
 		prevPressedState = isPressed;
 		onPressed.Invoke();
 		onPressedColor.Invoke(color);
-		
-		pressedSound.pitch = 1;
-		pressedSound.Play();
-		/*
-		ChangeColor script = cube.GetComponent<ChangeColor>();
-
-		if (script != null)
-		{
-			if (!script.IsMiniGamePlaying) //Permet de ne pas changer la couleur du cube lorsque les réponses sont affichées
-            {
-				script.ChangeMaterial(color);  // Change la couleur selon l'enum ColorType
-			}
-		}
-		*/
 	}
 
 	void Released()
 	{
-		/*
-		ChangeColor script = cube.GetComponent<ChangeColor>();
-		if (script != null)
-		{
-			if (color == ChangeColor.ColorType.Start)
-			{
-				script.StartMiniGame();
-				gameObject.SetActive(false);
-			}
-		}
-		*/
 		prevPressedState = isPressed;
-		/*releasedSound.pitch = Random.Range(1.1f, 1.2f);
-		releasedSound.Play();*/
 		onReleased.Invoke();
 		onReleasedObject.Invoke(gameObject);
+	}
+
+	public void FastMoveEntered()
+	{
+		if (fastmoveColliderCount == 0)
+		{
+			prevFastMoveState = isFastMoveDetected;
+			isFastMoveDetected = true;
+		}
+
+		fastmoveColliderCount++;
+	}
+
+	public void FastMoveExited()
+	{
+		if (fastmoveColliderCount == 1)
+		{
+			prevFastMoveState = isFastMoveDetected;
+			isFastMoveDetected = false;
+		}
+
+		fastmoveColliderCount--;
+	}
+
+	private void OnDisable()
+	{
+		isFastMoveDetected = false;
+		prevFastMoveState = false;
+		isPressed = false;
+		prevPressedState = false;
+		buttonTop.transform.localPosition = new Vector3(0, buttonUpperLimit.position.y, 0);
 	}
 }
