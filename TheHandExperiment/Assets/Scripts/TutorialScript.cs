@@ -31,9 +31,7 @@ public class TutorialScript : MonoBehaviour
     public AudioSource succeedSound;
     public AudioSource clickSound;
 
-    public int firstRoundDifficulty = 3;
-    public int secondRoundDifficulty = 3;
-    public int finalRoundDifficulty = 3;
+    public int roundDifficulty = 3;
 
 
     [SerializeField] private GameObject startingText;
@@ -102,15 +100,15 @@ public class TutorialScript : MonoBehaviour
     // Coroutine pour le déroulement du mini-jeu
     private IEnumerator MiniGame()
     {
-        var firstRoundAns = ChooseRandomColor(firstRoundDifficulty);
-        var secondRoundAns = ChooseRandomColor(secondRoundDifficulty);
-        var finalRoundAns = ChooseRandomColor(finalRoundDifficulty);
+        var firstRoundAns = ChooseRandomColor(roundDifficulty);
+        var secondRoundAns = ChooseRandomColor(roundDifficulty);
+        var finalRoundAns = ChooseRandomColor(roundDifficulty);
         
         // Attente de 3 secondes avant de commencer
         yield return new WaitForSeconds(1.0f);
 
         // Démarrer le jeu, première manche
-        StartCoroutine(ChangeCubeColor(firstRoundAns, ChangeColor.ColorType.Default, firstRoundDifficulty));
+        StartCoroutine(ChangeCubeColor(firstRoundAns, ChangeColor.ColorType.Default, roundDifficulty));
         yield return new WaitUntil(() => !_isRoundInProgress);
 
         quitText.SetActive(true);

@@ -53,9 +53,7 @@ public class ChangeColor : MonoBehaviour
     public AudioSource succeedSound;
     public AudioSource clickSound;
 
-    public int firstRoundDifficulty = 3;
-    public int secondRoundDifficulty = 3;
-    public int finalRoundDifficulty = 3;
+    public int roundDifficulty;
 
     public UnityEvent OnGameComplete;
 
@@ -130,30 +128,54 @@ public class ChangeColor : MonoBehaviour
         StartCoroutine(MiniGame());
     }
 
+    private void GetDifficulty()
+    {
+        switch (PlayerScoreManager.Instance.difficulty)
+        {
+            case PlayerScoreManager.DifficultyType.Easy:
+                roundDifficulty = 2;
+                break;
+            case PlayerScoreManager.DifficultyType.Normal:
+                roundDifficulty = 3;
+                break;
+            case PlayerScoreManager.DifficultyType.Intermediate:
+                roundDifficulty = 4;
+                break;
+            case PlayerScoreManager.DifficultyType.Hard:
+                roundDifficulty = 5;
+                break;
+            case PlayerScoreManager.DifficultyType.Expert:
+                roundDifficulty = 6;
+                break;
+        }
+    }
+
     // Coroutine pour le déroulement du mini-jeu
     IEnumerator MiniGame()
     {
-        List<ColorType> firstRoundAns = ChooseRandomColor(firstRoundDifficulty);
-        List<ColorType> secondRoundAns = ChooseRandomColor(secondRoundDifficulty);
-        List<ColorType> finalRoundAns = ChooseRandomColor(finalRoundDifficulty);
+        GetDifficulty();
+
+        List<ColorType> firstRoundAns = ChooseRandomColor(roundDifficulty);
+        List<ColorType> secondRoundAns = ChooseRandomColor(roundDifficulty);
+        List<ColorType> finalRoundAns = ChooseRandomColor(roundDifficulty);
 
         // Attente de 3 secondes avant de commencer
         yield return new WaitForSeconds(1.0f);
 
         // Démarrer le jeu, première manche
-        StartCoroutine(changeCubeColor(firstRoundAns, ColorType.Default, firstRoundDifficulty,1));
+        StartCoroutine(changeCubeColor(firstRoundAns, ColorType.Default, roundDifficulty,1));
         yield return new WaitUntil(() => !isRoundInProgress);
 
         yield return new WaitForSeconds(2.0f);
 
         // Deuxième manche
-        StartCoroutine(changeCubeColor(secondRoundAns, currentColor, secondRoundDifficulty,2));
+        StartCoroutine(changeCubeColor(secondRoundAns, currentColor, roundDifficulty,2));
         yield return new WaitUntil(() => !isRoundInProgress);
 
         yield return new WaitForSeconds(2.0f);
 
         // Dernière manche
-        StartCoroutine(changeCubeColor(finalRoundAns, currentColor, finalRoundDifficulty,3));
+        StartCoroutine(changeCubeColor(finalRoundAns, currentColor, roundDifficulty,3));
         yield return new WaitUntil(() => !isRoundInProgress);
 
         yield return new WaitForSeconds(1.0f);

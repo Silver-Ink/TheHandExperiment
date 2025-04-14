@@ -18,8 +18,6 @@ public class LevelsScores : MonoBehaviour
 
     private TMP_Text text;
 
-    string filename = "";
-
     [System.Serializable]
     public class LevelScore : List<roundScore> { }
 
@@ -137,11 +135,11 @@ public class LevelsScores : MonoBehaviour
         textScore.SetActive(true);
     }
 
-    public void WriteCSV()
+    public static void WriteCSV()
     {
         
         //InitializeTestData();
-        filename = Application.dataPath + "/usersResults.csv";
+        string filename = Application.dataPath + "/usersResults.csv";
         bool fileExists = File.Exists(filename);
 
         if (PlayerScoreManager.Instance.playerScore.levelScore.Count > 0)
@@ -149,20 +147,35 @@ public class LevelsScores : MonoBehaviour
             TextWriter tw = new StreamWriter(filename, true);
             if (!fileExists)
             {
-                tw.WriteLine("Player; Level; Round; Score");
+                tw.WriteLine("Player; Difficulty; Level; Round; Score");
             }
 
             string firstcolumn = "";
             string secondcolumn = "";
             string thirdcolumn = "";
 
-            firstcolumn = PlayerScoreManager.Instance.playerName + ";";
+            firstcolumn = PlayerScoreManager.Instance.playerName + ";" + PlayerScoreManager.Instance.GetStringDifficulty() + ";";
             for (int j = 0; j < PlayerScoreManager.Instance.playerScore.levelScore.Count; j++)
             {
                 secondcolumn = firstcolumn + (j + 1) + ";";
                 for (int t = 0; t < PlayerScoreManager.Instance.playerScore.levelScore[j].Count; t++)
                 {
-                    thirdcolumn = secondcolumn + (t + 1) + "; Time : " + PlayerScoreManager.Instance.playerScore.levelScore[j][t].time.ToString("F2");
+                    float timeInSeconds = PlayerScoreManager.Instance.playerScore.levelScore[j][t].time;
+                    int minutes = Mathf.FloorToInt(timeInSeconds / 60f);
+                    float seconds = timeInSeconds % 60f;
+
+                    string formattedTime;
+                    if (minutes > 0)
+                    {
+                        formattedTime = string.Format("{0} min {1:00.00} s", minutes, seconds);
+                    }
+                    else
+                    {
+                        formattedTime = string.Format("{0:0.00} s", seconds);
+                    }
+
+                    thirdcolumn = secondcolumn + (t + 1) + "; Time : " + formattedTime;
+
                     tw.WriteLine(thirdcolumn);
                     tw.WriteLine(" ; ; ; Errors : " + PlayerScoreManager.Instance.playerScore.levelScore[j][t].errors);
                     secondcolumn = ";;";
