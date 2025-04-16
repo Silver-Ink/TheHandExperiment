@@ -6,16 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="62fda361-a72e-465f-a2a6-9d5a96f69af8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TheHandExperiment/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TheHandExperiment/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera/CameraMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/CameraMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Camera/CameraTexture 1.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Camera/CameraTexture 1.renderTexture" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level5.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level5.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level6.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level6.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestAudrey/Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestAudrey/Blue.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestAudrey/Default.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestAudrey/Default.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestAudrey/Green.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestAudrey/Green.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestAudrey/Red.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestAudrey/Red.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ChangeColor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ChangeColor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/MiniGame.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/MiniGame.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.7/Starter Assets/Prefabs/Interactors/Teleport Interactor.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.7/Starter Assets/Prefabs/Interactors/Teleport Interactor.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.7/Starter Assets/Prefabs/XR Origin (XR Rig).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Samples/XR Interaction Toolkit/3.0.7/Starter Assets/Prefabs/XR Origin (XR Rig).prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level Bonus.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level Bonus.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level Down.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level Down.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level4.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level4.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level5.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level5.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level6.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level6.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UltimateXR/Examples/FullScene/Prefabs/Rooms/ControllersRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UltimateXR/Examples/FullScene/Prefabs/Rooms/ControllersRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/VRTemplateAssets/Prefabs/Setup/Complete XR Origin Set Up Hands Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/VRTemplateAssets/Prefabs/Setup/Complete XR Origin Set Up Hands Variant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/usersResults.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/usersResults.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +122,7 @@
       <workItem from="1744050328433" duration="3055000" />
       <workItem from="1744662702140" duration="117000" />
       <workItem from="1744663784458" duration="874000" />
+      <workItem from="1744809939116" duration="694000" />
     </task>
     <servers />
   </component>
