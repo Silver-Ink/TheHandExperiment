@@ -177,10 +177,10 @@ public class LevelsScores : MonoBehaviour
                     thirdcolumn = secondcolumn + (t + 1) + "; Time : " + formattedTime;
 
                     tw.WriteLine(thirdcolumn);
-                    tw.WriteLine(" ; ; ; Errors : " + PlayerScoreManager.Instance.playerScore.levelScore[j][t].errors);
-                    secondcolumn = ";;";
+                    tw.WriteLine("; ; ; ; Errors : " + PlayerScoreManager.Instance.playerScore.levelScore[j][t].errors);
+                    secondcolumn = ";;;";
                 }
-                firstcolumn = ";";
+                firstcolumn = "; ;";
             }
             tw.Flush();
             tw.Close();

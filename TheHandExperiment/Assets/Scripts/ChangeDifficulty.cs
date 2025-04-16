@@ -12,6 +12,7 @@ public class ChangeDifficulty : MonoBehaviour
     private void Start()
     {
         text = textDifficulty.GetComponent<TMP_Text>();
+        text.text = PlayerScoreManager.Instance.GetStringDifficulty();
     }
 
     public void IncreaseDifficulty()
