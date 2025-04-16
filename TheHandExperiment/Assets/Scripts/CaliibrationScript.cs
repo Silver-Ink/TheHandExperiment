@@ -31,7 +31,6 @@ public class CaliibrationScript : MonoBehaviour
             if (dist != 0f)
 			{
                 //performRaycast = false;
-                Debug.Log("Distance " + dist.ToString());
                 Character1.transform.position += new Vector3(0, -dist, 0);
                 Character2.transform.position += new Vector3(0, -dist, 0);
                 CalibrationSingleton.Instance.HeightAjustment = Character1.transform.position.y - InitalCharacterHeight;

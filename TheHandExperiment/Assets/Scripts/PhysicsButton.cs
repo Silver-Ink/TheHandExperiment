@@ -18,10 +18,13 @@ public class PhysicsButton : MonoBehaviour
 	public float threshHold;
 	public float force = 10;
 	private float upperLowerDiff;
-	public bool isPressed;
-	private bool prevPressedState;
+	public bool isPressed = false;
+	private bool prevPressedState = false;
 	private bool isFastMoveDetected = false;
-	private bool prevFastMoveState;
+	private bool prevFastMoveState = false;
+	private bool isActivated = false;
+	private bool prevActivatedState = false;
+	
 	private int fastmoveColliderCount = 0;
 	public AudioSource pressedSound;
 	public Collider[] CollidersToIgnore;
@@ -35,6 +38,19 @@ public class PhysicsButton : MonoBehaviour
 
 	[SerializeField]
 	GameObject cube; // Référence au cube à changer
+	
+
+	[SerializeField]
+	Material red;
+	
+	[SerializeField]
+	Material yellow;
+	
+	[SerializeField]
+	Material gray;
+
+	private Renderer buttonRenderer;
+
 
 	// Start is called before the first frame update
 	void Start()
@@ -59,6 +75,8 @@ public class PhysicsButton : MonoBehaviour
 		}
 		else
 			upperLowerDiff = buttonUpperLimit.position.y - buttonLowerLimit.position.y;
+
+		buttonRenderer = buttonTop.gameObject.GetComponent<Renderer>();
 	}
 
 	// Update is called once per frame
@@ -75,43 +93,72 @@ public class PhysicsButton : MonoBehaviour
 			buttonTop.transform.position = new Vector3(buttonLowerLimit.position.x, buttonLowerLimit.position.y, buttonLowerLimit.position.z);
 
 
+
+		buttonRenderer.material = gray;
+		prevPressedState = isPressed;
+		prevFastMoveState = isFastMoveDetected;
+		prevActivatedState = isActivated;
+
 		if (Vector3.Distance(buttonTop.position, buttonLowerLimit.position) < upperLowerDiff * threshHold)
+		{
 			isPressed = true;
+		}
 		else
+		{
 			isPressed = false;
+		}
+
+
+		if (
+			// (isPressed && !prevPressedState) 
+		 //    ||
+			(isFastMoveDetected /*&& !isPressed*/ && !prevFastMoveState)
+		    )
+		{
+			// JustActivated();
+			isActivated = true;
+		}
 		
+		if (
+			// (!isPressed && prevPressedState 
+	  //               && !isFastMoveDetected) 
+		 //    ||
+			(!isFastMoveDetected && prevFastMoveState )) 
+		                            // && !isPressed))
+		{
+			// JustReleased();
+			isActivated = false;
+		}
 		
-		if ((isPressed && prevPressedState != isPressed) ||
-		    (isFastMoveDetected && !isPressed && prevFastMoveState != isFastMoveDetected))
-			Pressed();
-		if ((!isPressed && prevPressedState != isPressed) ||
-		    (!isFastMoveDetected && isPressed && prevFastMoveState != isFastMoveDetected))
-			Released();
+		if(isActivated && isActivated != prevActivatedState)
+			JustActivated();
+		if(!isActivated && isActivated != prevActivatedState)
+			JustReleased();
 	}
 
-	void Pressed()
+	void JustActivated()
 	{
+		buttonRenderer.material = yellow;
 		pressedSound.pitch = 1;
 		pressedSound.Play();
 		
-		prevPressedState = isPressed;
 		onPressed.Invoke();
 		onPressedColor.Invoke(color);
 	}
 
-	void Released()
+	void JustReleased()
 	{
-		prevPressedState = isPressed;
-		onReleased.Invoke();
-		onReleasedObject.Invoke(gameObject);
+		buttonRenderer.material = red;
+		// onReleased.Invoke();
+		// onReleasedObject.Invoke(gameObject);
 	}
 
 	public void FastMoveEntered()
 	{
 		if (fastmoveColliderCount == 0)
 		{
-			prevFastMoveState = isFastMoveDetected;
 			isFastMoveDetected = true;
+			Debug.Log("true");
 		}
 
 		fastmoveColliderCount++;
@@ -121,8 +168,9 @@ public class PhysicsButton : MonoBehaviour
 	{
 		if (fastmoveColliderCount == 1)
 		{
-			prevFastMoveState = isFastMoveDetected;
 			isFastMoveDetected = false;
+			Debug.Log("false");
+			
 		}
 
 		fastmoveColliderCount--;
@@ -134,6 +182,8 @@ public class PhysicsButton : MonoBehaviour
 		prevFastMoveState = false;
 		isPressed = false;
 		prevPressedState = false;
+		isActivated = false;
+		prevActivatedState = false;
 		buttonTop.transform.localPosition = new Vector3(0, buttonUpperLimit.position.y, 0);
 	}
 }
