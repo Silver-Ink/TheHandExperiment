@@ -6,35 +6,38 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CalibrationLevel.unity
+    path: Assets/Game/Scenes/CalibrationLevel.unity
     guid: 956e367502b615540939e4cb341df02c
   - enabled: 1
-    path: Assets/Scenes/Tutorial_Scene.unity
+    path: Assets/Game/Scenes/Tutorial_Scene.unity
     guid: 7fe20e90721c09a4296dfb40d33f0b58
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Game/Scenes/MainMenu.unity
     guid: 09baefbc13584b04f88b16496af797e2
   - enabled: 1
-    path: Assets/Scenes/Levels/Level1.unity
+    path: Assets/Game/Scenes/Levels/Level1.unity
     guid: 41f30a2330812a249bdb53e3b353c122
   - enabled: 1
-    path: Assets/Scenes/Levels/Level2.unity
+    path: Assets/Game/Scenes/Levels/Level2.unity
     guid: 1bd2a79776452ee4797f11b3054901d8
   - enabled: 1
-    path: Assets/Scenes/Levels/Level3.unity
-    guid: b4d23fdf0709da4499b8d613fee7ad26
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level4.unity
-    guid: 8a581ac9fc5c0a94d89f738b2ccabf2a
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level Bonus.unity
+    path: Assets/Game/Scenes/Levels/Level3.unity
     guid: 6579ba5b3b19b4e4e80adf01c9402ef4
   - enabled: 1
-    path: Assets/Scenes/Levels/Level5.unity
-    guid: 7d1c601547c12b445b9d2553c1a3c5d4
+    path: Assets/Game/Scenes/Levels/Level4.unity
+    guid: b4d23fdf0709da4499b8d613fee7ad26
   - enabled: 1
-    path: Assets/Scenes/Levels/Level6.unity
-    guid: f4aa5549182f0024891bd2de0ccf5f07
+    path: Assets/Game/Scenes/Levels/Level5.unity
+    guid: 8a581ac9fc5c0a94d89f738b2ccabf2a
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level6.unity
+    guid: 7e27c738fa2a0c34aae86b70bb6c89f1
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level7.unity
+    guid: fbcbf2fb85a20304fb63860afacea322
+  - enabled: 1
+    path: Assets/Game/Scenes/Levels/Level8.unity
+    guid: 944a1f7a721342f49859b817471c6042
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}
