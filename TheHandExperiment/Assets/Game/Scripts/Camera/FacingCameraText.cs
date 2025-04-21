@@ -4,15 +4,9 @@ public class FacingCameraText : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    // Oriente l'objet pour qu'il fasse toujours face à la caméra
     void Update()
     {
-		transform.forward = -_camera.transform.forward;
-	}
+        transform.forward = -_camera.transform.forward;
+    }
 }

@@ -33,7 +33,7 @@ Assets/
     ├── Camera/        → Caméras utilisées dans les niveaux
     ├── Fonts/         → Polices du jeu
     ├── Prefabs/       → Objets réutilisables
-    ├── Results/       → Fichiers de score (.csv)
+    ├── Results/       → Fichiers de score avec un exemple (.csv)
     ├── Scenes/
     │   └── Levels/    → Scènes des différents niveaux
     ├── Scripts/

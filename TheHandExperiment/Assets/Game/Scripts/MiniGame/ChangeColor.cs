@@ -7,9 +7,8 @@ using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class ChangeColor : MonoBehaviour
-    {
-
-    // Définir l'énumération pour les couleurs
+{
+    // Enumération des différentes couleurs utilisées dans le jeu
     public enum ColorType
     {
         Default = 0,
@@ -23,50 +22,39 @@ public class ChangeColor : MonoBehaviour
         Start = 8
     }
 
-    // Déclaration des matériaux
-    [SerializeField]
-    Material deFault;
+    // Déclaration des matériaux associés à chaque couleur
+    [SerializeField] Material deFault;
+    [SerializeField] Material red;
+    [SerializeField] Material blue;
+    [SerializeField] Material green;
+    [SerializeField] Material yellow;
+    [SerializeField] Material pink;
+    [SerializeField] Material orange;
+    [SerializeField] Material purple;
 
-    [SerializeField]
-    Material red;
-
-    [SerializeField]
-    Material blue;
-
-    [SerializeField]
-    Material green;
-
-    [SerializeField]
-    Material yellow;
-
-    [SerializeField]
-    Material pink;
-
-    [SerializeField]
-    Material orange;
-
-    [SerializeField]
-    Material purple;
-
+    // Sons associés aux actions du jeu
     public AudioSource wrongSound;
     public AudioSource rightSound;
     public AudioSource succeedSound;
     public AudioSource clickSound;
 
+    // Variable pour définir la difficulté du round
     public int roundDifficulty;
 
+    // Evenement déclenché lorsque le jeu est terminé
     public UnityEvent OnGameComplete;
 
     private bool isMiniGamePlaying = false;
     private LevelsScores levelsScores;
     private float timer;
-    // Getter
+
+    // Getter pour vérifier si un mini-jeu est en cours
     public bool IsMiniGamePlaying
     {
         get { return isMiniGamePlaying; }
     }
 
-    // Setter
+    // Setter pour changer l'état du mini-jeu
     public void SetIsMiniGamePlaying(bool value)
     {
         isMiniGamePlaying = value;
@@ -75,15 +63,14 @@ public class ChangeColor : MonoBehaviour
     // Dictionnaire des matériaux avec ColorType comme clé
     Dictionary<ColorType, Material> materials = new Dictionary<ColorType, Material>();
 
-    // Variable pour suivre la couleur actuelle
+    // Couleur actuelle du cube
     ColorType currentColor = ColorType.Default;
 
     private bool isRoundInProgress = false;
 
-    // Start est appelé une seule fois avant le premier Update
+    // Initialisation des matériaux et autres composants
     void Awake()
     {
-        // Initialisation du dictionnaire avec les couleurs et les matériaux associés
         materials.Add(ColorType.Default, deFault);
         materials.Add(ColorType.Blue, blue);
         materials.Add(ColorType.Red, red);
@@ -94,12 +81,14 @@ public class ChangeColor : MonoBehaviour
         materials.Add(ColorType.Green, green);
     }
 
+    // Initialisation au démarrage du jeu
     private void Start()
     {
-        ChangeMaterial(ColorType.Default); // Initialiser avec la couleur par défaut
+        ChangeMaterial(ColorType.Default); // Initialisation avec la couleur par défaut
         levelsScores = GetComponent<LevelsScores>();
     }
 
+    // Mise à jour du timer pour la durée du jeu
     private void Update()
     {
         if (isRoundInProgress)
@@ -112,22 +101,20 @@ public class ChangeColor : MonoBehaviour
         }
     }
 
-    // Méthode pour déclencher un changement de couleur
-
-    // Méthode pour changer le matériau en fonction de la couleur choisie
+    // Changement du matériau en fonction de la couleur choisie
     public void ChangeMaterial(ColorType color)
     {
         GetComponent<Renderer>().material = materials[color];
         currentColor = color;
-        //Debug.Log("<color=blue>Color : " + color + "</color>");
     }
 
-    // Démarre le mini-jeu
+    // Démarre le mini-jeu en appelant la coroutine
     public void StartMiniGame()
     {
         StartCoroutine(MiniGame());
     }
 
+    // Récupère la difficulté du joueur et l'assigne à la variable roundDifficulty
     private void GetDifficulty()
     {
         switch (PlayerScoreManager.Instance.difficulty)
@@ -150,34 +137,32 @@ public class ChangeColor : MonoBehaviour
         }
     }
 
-    // Coroutine pour le déroulement du mini-jeu
+    // Coroutine qui gère le déroulement du mini-jeu
     IEnumerator MiniGame()
     {
         GetDifficulty();
 
+        // Génère une série de couleurs pour chaque round
         List<ColorType> firstRoundAns = ChooseRandomColor(roundDifficulty);
         List<ColorType> secondRoundAns = ChooseRandomColor(roundDifficulty);
         List<ColorType> finalRoundAns = ChooseRandomColor(roundDifficulty);
 
-        // Attente de 3 secondes avant de commencer
+        // Attente avant de commencer
         yield return new WaitForSeconds(1.0f);
 
-        // Démarrer le jeu, première manche
-        StartCoroutine(changeCubeColor(firstRoundAns, ColorType.Default, roundDifficulty,1));
+        // Première manche
+        StartCoroutine(changeCubeColor(firstRoundAns, ColorType.Default, roundDifficulty, 1));
         yield return new WaitUntil(() => !isRoundInProgress);
-
         yield return new WaitForSeconds(2.0f);
 
         // Deuxième manche
-        StartCoroutine(changeCubeColor(secondRoundAns, currentColor, roundDifficulty,2));
+        StartCoroutine(changeCubeColor(secondRoundAns, currentColor, roundDifficulty, 2));
         yield return new WaitUntil(() => !isRoundInProgress);
-
         yield return new WaitForSeconds(2.0f);
 
         // Dernière manche
-        StartCoroutine(changeCubeColor(finalRoundAns, currentColor, roundDifficulty,3));
+        StartCoroutine(changeCubeColor(finalRoundAns, currentColor, roundDifficulty, 3));
         yield return new WaitUntil(() => !isRoundInProgress);
-
         yield return new WaitForSeconds(1.0f);
 
         succeedSound.Play();
@@ -185,21 +170,19 @@ public class ChangeColor : MonoBehaviour
 
         levelsScores.DebugCurrentScore();
         levelsScores.AddTotalScore();
-
         levelsScores.DisplayScore();
     }
 
-    // Crée une liste avec les couleurs choisies au hasard
+    // Crée une liste de couleurs au hasard
     private List<ColorType> ChooseRandomColor(int numberColors)
     {
         List<ColorType> ans = new List<ColorType>();
 
         while (ans.Count != numberColors)
         {
-            ColorType value = (ColorType)Random.Range(1, Enum.GetValues(typeof(ColorType)).Length - 1); // Récupère une couleur au hasard
+            ColorType value = (ColorType)Random.Range(1, Enum.GetValues(typeof(ColorType)).Length - 1);
             if (ans.Count != 0)
             {
-                // Éviter les doublons
                 if (ans[^1] != value)
                 {
                     ans.Add(value);
@@ -215,8 +198,8 @@ public class ChangeColor : MonoBehaviour
         return ans;
     }
 
-    // Fonction pour changer la couleur du cube en fonction de la liste de couleurs
-    private IEnumerator changeCubeColor(List<ColorType> answers, ColorType lastValue, int numbersAns, int round,  int errors = 0)
+    // Gère le changement de couleur du cube pendant chaque manche
+    private IEnumerator changeCubeColor(List<ColorType> answers, ColorType lastValue, int numbersAns, int round, int errors = 0)
     {
         isRoundInProgress = true;
         foreach (ColorType val in answers)
@@ -252,19 +235,17 @@ public class ChangeColor : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         ChangeMaterial(ColorType.Default);
 
-        // Si l'utilisateur a échoué, redémarrer la manche
+        // Si l'utilisateur a échoué, recommencer la manche
         if (failed)
         {
             errors++;
-            
             StartCoroutine(changeCubeColor(answers, lastValue, numbersAns, round, errors));
             yield break;
         }
-        //Si le joueur a réussi, lancer la musique et passer au round suivant
+        // Si réussi, passer à la manche suivante
         else
         {
             levelsScores.UpdateScore(round, errors, timer);
-            //levelsScores
             rightSound.Play();
             isRoundInProgress = false;
         }
@@ -277,23 +258,18 @@ public class ChangeColor : MonoBehaviour
         {
             Debug.Log("<color=red>La liste est vide.</color>");
         }
-        string res = "<color=red>[";
-
-        foreach (ColorType c in list)
+        else
         {
-            res += c.ToString() + ", ";
+            string res = "<color=red>[" + string.Join(", ", list) + "]</color>";
+            Debug.Log(res);
         }
-
-        res += "]</color>";
-
-        Debug.Log(res);
     }
 
+    // Charge le niveau suivant
     public void LoadNextLevel(int levelNumber)
     {
         if (levelNumber < 0)
-            SceneManager.LoadScene("MainMenu" );
+            SceneManager.LoadScene("MainMenu");
         SceneManager.LoadScene("Level" + levelNumber);
     }
 }
-

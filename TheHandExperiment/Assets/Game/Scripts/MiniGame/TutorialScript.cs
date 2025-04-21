@@ -9,57 +9,42 @@ using Random = UnityEngine.Random;
 
 public class TutorialScript : MonoBehaviour
 {
-    // Déclaration des matériaux
+    // Déclaration des matériaux utilisés pour changer la couleur du cube
     [SerializeField] private Material deFault;
-
     [SerializeField] private Material red;
-
     [SerializeField] private Material blue;
-
     [SerializeField] private Material green;
-
     [SerializeField] private Material yellow;
-
     [SerializeField] private Material pink;
-
     [SerializeField] private Material orange;
-
     [SerializeField] private Material purple;
 
+    // Références audio pour les sons
     public AudioSource wrongSound;
     public AudioSource rightSound;
     public AudioSource succeedSound;
     public AudioSource clickSound;
 
-    public int roundDifficulty = 3;
+    public int roundDifficulty = 3; // Difficulté du round (nombre de couleurs)
 
-
+    // Textes d'interface pour différentes étapes
     [SerializeField] private GameObject startingText;
     [SerializeField] private GameObject cubeText;
     [SerializeField] private GameObject buttonsText;
     [SerializeField] private GameObject quitText;
-    
-    // Getter
+
+    // Propriété pour savoir si le mini-jeu est en cours
     public bool IsMiniGamePlaying { get; private set; }
 
-    // Setter
-    public void SetIsMiniGamePlaying(bool value)
-    {
-        IsMiniGamePlaying = value;
-    }
-
-    // Dictionnaire des matériaux avec ColorType comme clé
+    // Initialisation des matériaux et couleurs
     private readonly Dictionary<ChangeColor.ColorType, Material> _materials = new();
-
-    // Variable pour suivre la couleur actuelle
     private ChangeColor.ColorType _currentColor = ChangeColor.ColorType.Default;
-
     private bool _isRoundInProgress;
 
-    // Start est appelé une seule fois avant le premier Update
+    // Initialisation des matériaux et de l'interface au lancement
     private void Awake()
     {
-        // Initialisation du dictionnaire avec les couleurs et les matériaux associés
+        // Lier chaque couleur à un matériau spécifique
         _materials.Add(ChangeColor.ColorType.Default, deFault);
         _materials.Add(ChangeColor.ColorType.Blue, blue);
         _materials.Add(ChangeColor.ColorType.Red, red);
@@ -68,26 +53,25 @@ public class TutorialScript : MonoBehaviour
         _materials.Add(ChangeColor.ColorType.Orange, orange);
         _materials.Add(ChangeColor.ColorType.Purple, purple);
         _materials.Add(ChangeColor.ColorType.Green, green);
+
+        // Afficher les textes d'introduction
         startingText.SetActive(true);
         cubeText.SetActive(false);
         buttonsText.SetActive(false);
         quitText.SetActive(false);
     }
 
+    // Méthode de démarrage pour définir la couleur par défaut
     private void Start()
     {
         ChangeMaterial(ChangeColor.ColorType.Default); // Initialiser avec la couleur par défaut
-        //StartMiniGame(); // Démarrer le mini-jeu
     }
 
-    // Méthode pour déclencher un changement de couleur
-
-    // Méthode pour changer le matériau en fonction de la couleur choisie
+    // Change le matériau du cube selon la couleur choisie
     public void ChangeMaterial(ChangeColor.ColorType color)
     {
         GetComponent<Renderer>().material = _materials[color];
         _currentColor = color;
-        //Debug.Log("<color=blue>Color : " + color + "</color>");
     }
 
     // Démarre le mini-jeu
@@ -97,42 +81,37 @@ public class TutorialScript : MonoBehaviour
         StartCoroutine(MiniGame());
     }
 
-    // Coroutine pour le déroulement du mini-jeu
+    // Coroutine pour gérer les différentes étapes du mini-jeu
     private IEnumerator MiniGame()
     {
         var firstRoundAns = ChooseRandomColor(roundDifficulty);
         var secondRoundAns = ChooseRandomColor(roundDifficulty);
         var finalRoundAns = ChooseRandomColor(roundDifficulty);
-        
-        // Attente de 3 secondes avant de commencer
-        yield return new WaitForSeconds(1.0f);
 
-        // Démarrer le jeu, première manche
+        yield return new WaitForSeconds(1.0f); // Attente de 1 seconde avant de commencer
+
+        // Démarre la première manche
         StartCoroutine(ChangeCubeColor(firstRoundAns, ChangeColor.ColorType.Default, roundDifficulty));
-        yield return new WaitUntil(() => !_isRoundInProgress);
+        yield return new WaitUntil(() => !_isRoundInProgress); // Attente de la fin de la manche
 
-        quitText.SetActive(true);
+        quitText.SetActive(true); // Afficher le texte de fin
 
         yield return new WaitForSeconds(1.0f);
 
-        succeedSound.Play();
+        succeedSound.Play(); // Jouer le son de succès
     }
 
-    // Crée une liste avec les couleurs choisies au hasard
+    // Crée une liste de couleurs choisies au hasard
     private static List<ChangeColor.ColorType> ChooseRandomColor(int numberColors)
     {
         var ans = new List<ChangeColor.ColorType>();
 
         while (ans.Count != numberColors)
         {
-            var value = (ChangeColor.ColorType)Random.Range(1, Enum.GetValues(typeof(ChangeColor.ColorType)).Length - 1); // Récupère une couleur au hasard
-            if (ans.Count != 0)
+            var value = (ChangeColor.ColorType)Random.Range(1, Enum.GetValues(typeof(ChangeColor.ColorType)).Length - 1);
+            if (ans.Count != 0 && ans[^1] != value) // Éviter les doublons
             {
-                // Éviter les doublons
-                if (ans[^1] != value)
-                {
-                    ans.Add(value);
-                }
+                ans.Add(value);
             }
             else
             {
@@ -140,53 +119,59 @@ public class TutorialScript : MonoBehaviour
             }
         }
 
-        PrintListDebug(ans);
+        PrintListDebug(ans); // Affichage de la liste pour débogage
         return ans;
     }
 
-    // Fonction pour changer la couleur du cube en fonction de la liste de couleurs
+    // Change la couleur du cube en fonction des couleurs à suivre
     private IEnumerator ChangeCubeColor(List<ChangeColor.ColorType> answers, ChangeColor.ColorType lastValue, int numbersAns)
     {
-        
         _isRoundInProgress = true;
         cubeText.SetActive(true);
+
+        // Afficher chaque couleur du mini-jeu
         foreach (var val in answers)
         {
             IsMiniGamePlaying = true;
-            clickSound.Play();
-            ChangeMaterial(val);
-            yield return new WaitForSeconds(1.0f);
+            clickSound.Play(); // Jouer le son de clic
+            ChangeMaterial(val); // Changer la couleur
+            yield return new WaitForSeconds(1.0f); // Attendre avant de changer
         }
-        ChangeMaterial(ChangeColor.ColorType.Default);
+
+        ChangeMaterial(ChangeColor.ColorType.Default); // Revenir à la couleur par défaut
         IsMiniGamePlaying = false;
         cubeText.SetActive(false);
-        buttonsText.SetActive(true);
-        
+        buttonsText.SetActive(true); // Afficher les boutons pour la sélection de l'utilisateur
+
         var failed = false;
         var correctColors = 0;
+
+        // Vérification des couleurs choisies par l'utilisateur
         while (correctColors < numbersAns)
         {
             var value = lastValue;
-            yield return new WaitUntil(() => value != _currentColor); // Attente du changement de couleur
+            yield return new WaitUntil(() => value != _currentColor); // Attente que la couleur change
 
             lastValue = _currentColor;
 
-            if (_currentColor == answers[correctColors]) // Vérification si la couleur actuelle correspond à la bonne réponse
+            // Vérifier si la couleur choisie correspond à la réponse attendue
+            if (_currentColor == answers[correctColors])
             {
                 correctColors++;
             }
             else
             {
-                wrongSound.Play();
+                wrongSound.Play(); // Jouer le son d'erreur
                 failed = true;
                 lastValue = ChangeColor.ColorType.Default;
-                break;
+                break; // Arrêter en cas d'échec
             }
         }
-        yield return new WaitForSeconds(1.0f);
-        ChangeMaterial(ChangeColor.ColorType.Default);
 
-        // Si l'utilisateur a échoué, redémarrer la manche
+        yield return new WaitForSeconds(1.0f);
+        ChangeMaterial(ChangeColor.ColorType.Default); // Remettre la couleur par défaut
+
+        // Si échec, recommencer la manche
         if (failed)
         {
             StartCoroutine(ChangeCubeColor(answers, lastValue, numbersAns));
@@ -194,12 +179,12 @@ public class TutorialScript : MonoBehaviour
             yield break;
         }
 
-        rightSound.Play();
+        rightSound.Play(); // Jouer le son de succès
         buttonsText.SetActive(false);
         _isRoundInProgress = false;
     }
 
-    // Affiche les couleurs sélectionnées dans la console pour débogage
+    // Affiche la liste des couleurs pour débogage
     private static void PrintListDebug(List<ChangeColor.ColorType> list)
     {
         if (list.Count == 0)
@@ -207,12 +192,11 @@ public class TutorialScript : MonoBehaviour
             Debug.Log("<color=red>La liste est vide.</color>");
         }
         var res = list.Aggregate("<color=red>[", (current, c) => current + (c + ", "));
-
         res += "]</color>";
-
         Debug.Log(res);
     }
 
+    // Quitte le tutoriel et retourne au menu principal
     public void QuitTutorial()
     {
         SceneManager.LoadScene("MainMenu");

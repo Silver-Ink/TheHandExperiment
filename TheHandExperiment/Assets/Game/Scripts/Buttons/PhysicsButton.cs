@@ -6,8 +6,10 @@ using UnityEngine.Serialization;
 
 [System.Serializable]
 public class ChangeColorEvent : UnityEvent<ChangeColor.ColorType> { }
+
 [System.Serializable]
 public class ChangeObjectEvent : UnityEvent<GameObject> { }
+
 public class PhysicsButton : MonoBehaviour
 {
 	public Rigidbody buttonTopRigid;
@@ -25,14 +27,15 @@ public class PhysicsButton : MonoBehaviour
 	public UnityEvent onReleased;
 	public ChangeColorEvent onPressedColor;
 	public ChangeObjectEvent onReleasedObject;
-	
-	[SerializeField] public 
-    ChangeColor.ColorType color; // Utilisation de l'enum ColorType
+
+	[SerializeField]
+	public
+	ChangeColor.ColorType color; // Utilisation de l'enum ColorType
 
 	[SerializeField]
 	GameObject cube; // Référence au cube à changer
 
-	// Start is called before the first frame update
+	// Initialise les collisions à ignorer et calcule la hauteur du bouton
 	void Start()
 	{
 		Collider localCollider = GetComponent<Collider>();
@@ -57,7 +60,7 @@ public class PhysicsButton : MonoBehaviour
 			upperLowerDiff = buttonUpperLimit.position.y - buttonLowerLimit.position.y;
 	}
 
-	// Update is called once per frame
+	// Met à jour la position du bouton et détecte s'il est pressé ou relâché
 	void Update()
 	{
 		buttonTop.transform.localPosition = new Vector3(0, buttonTop.transform.localPosition.y, 0);
@@ -82,51 +85,21 @@ public class PhysicsButton : MonoBehaviour
 			Released();
 	}
 
-	// void FixedUpdate(){
-	//     Vector3 localVelocity = transform.InverseTransformDirection(buttonTop.GetComponent<Rigidbody>().velocity);
-	//     Rigidbody rb = buttonTop.GetComponent<Rigidbody>();
-	//     localVelocity.x = 0;
-	//     localVelocity.z = 0;
-	//     rb.velocity = transform.TransformDirection(localVelocity);
-	// }
-
+	// Gère l'événement lorsqu'on presse le bouton
 	void Pressed()
 	{
 		prevPressedState = isPressed;
 		onPressed.Invoke();
 		onPressedColor.Invoke(color);
-		
+
 		pressedSound.pitch = 1;
 		pressedSound.Play();
-		/*
-		ChangeColor script = cube.GetComponent<ChangeColor>();
-
-		if (script != null)
-		{
-			if (!script.IsMiniGamePlaying) //Permet de ne pas changer la couleur du cube lorsque les réponses sont affichées
-            {
-				script.ChangeMaterial(color);  // Change la couleur selon l'enum ColorType
-			}
-		}
-		*/
 	}
 
+	// Gère l'événement lorsqu'on relâche le bouton
 	void Released()
 	{
-		/*
-		ChangeColor script = cube.GetComponent<ChangeColor>();
-		if (script != null)
-		{
-			if (color == ChangeColor.ColorType.Start)
-			{
-				script.StartMiniGame();
-				gameObject.SetActive(false);
-			}
-		}
-		*/
 		prevPressedState = isPressed;
-		/*releasedSound.pitch = Random.Range(1.1f, 1.2f);
-		releasedSound.Play();*/
 		onReleased.Invoke();
 		onReleasedObject.Invoke(gameObject);
 	}
